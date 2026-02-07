@@ -14,6 +14,11 @@
     <Manifest>
       <DTSPackages>
         <DtsPackage FormatVersion="8">
+          <Name>PKG_03_Load_Fact_Payment.dtsx</Name>
+          <FullPath>PKG_03_Load_Fact_Payment.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
           <Name>PKG_01_Load_Staging.dtsx</Name>
           <FullPath>PKG_01_Load_Staging.dtsx</FullPath>
           <References />
