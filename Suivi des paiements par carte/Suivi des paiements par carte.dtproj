@@ -14,8 +14,8 @@
     <Manifest>
       <DTSPackages>
         <DtsPackage FormatVersion="8">
-          <Name>PKG_03_Load_Fact_Payment.dtsx</Name>
-          <FullPath>PKG_03_Load_Fact_Payment.dtsx</FullPath>
+          <Name>MASTER_ETL.dtsx</Name>
+          <FullPath>MASTER_ETL.dtsx</FullPath>
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
@@ -26,6 +26,11 @@
         <DtsPackage FormatVersion="8">
           <Name>PKG_02_Load_Dimension_.dtsx</Name>
           <FullPath>PKG_02_Load_Dimension_.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>PKG_03_Load_Fact_Payment.dtsx</Name>
+          <FullPath>PKG_03_Load_Fact_Payment.dtsx</FullPath>
           <References />
         </DtsPackage>
       </DTSPackages>
