@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_01_Load_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{CAA8AD72-1164-4A5B-A6F4-DEA696E985D3}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{897BB594-AA75-43C1-84A0-7276F836DDDE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -908,7 +908,314 @@ FROM dbo.charge;</property>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF_Load_STG_Category"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4C750668-3FC4-421A-90F7-76C32EDAA09C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF_Load_STG_Category"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF_Load_STG_Category\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dw].[DIM_Category]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Load_STG_Category\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_CreditDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_CreditDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[category_no]"
+                      cachedDataType="i4"
+                      cachedName="category_no"
+                      externalMetadataColumnId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryNo]"
+                      lineageId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_no]" />
+                    <inputColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[category_desc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="31"
+                      cachedName="category_desc"
+                      externalMetadataColumnId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryDesc]"
+                      lineageId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_desc]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryKey]"
+                      dataType="i4"
+                      name="CategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryNo]"
+                      dataType="i4"
+                      name="CategoryNo" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryDesc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CategoryDesc" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Load_STG_Category\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_STG_Category\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_STG_Category\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Load_STG_Category\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[category]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    category_no,
+    category_desc
+FROM dbo.category;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Load_STG_Category\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_CreditDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_CreditDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_no]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[category_no]"
+                      lineageId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_no]"
+                      name="category_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[category_desc]"
+                      length="31"
+                      lineageId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_desc]"
+                      name="category_desc"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[category_no]"
+                      dataType="i4"
+                      name="category_no" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[category_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="31"
+                      name="category_desc" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[category_no]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[category_no]"
+                      name="category_no" />
+                    <outputColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[category_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="31"
+                      lineageId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[category_desc]"
+                      name="category_desc" />
+                    <outputColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF_Load_STG_Category.Paths[OLE DB Source Output]"
+              endId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{193DF06F-099B-4FA6-9AFA-0A206CB12B39}"
+      DTS:From="Package\DF_Load_Charge_SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF_Load_STG_Category" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4B2D16D2-6E26-4F45-B875-582232DAF196}"
+      DTS:From="Package\DF_Load_Charge_Excel"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DF_Load_STG_Category" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -920,15 +1227,87 @@ FROM dbo.charge;</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="199,42"
           Id="Package\DF_Load_Charge_Excel"
-          TopLeft="511,137" />
+          TopLeft="434,102" />
         <NodeLayout
           Size="194,42"
           Id="Package\DF_Load_Charge_SQL"
-          TopLeft="187,133" />
+          TopLeft="137,106" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\DF_Load_STG_Category"
+          TopLeft="314,329" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="234,148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="149.333333333333,181"
+              Start="0,0"
+              End="149.333333333333,173.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,103.75486381323" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,103.75486381323"
+                    Point2="0,107.75486381323"
+                    Point3="4,107.75486381323" />
+                  <mssgle:LineSegment
+                    End="145.333333333333,107.75486381323" />
+                  <mssgle:CubicBezierSegment
+                    Point1="145.333333333333,107.75486381323"
+                    Point2="149.333333333333,107.75486381323"
+                    Point3="149.333333333333,111.75486381323" />
+                  <mssgle:LineSegment
+                    End="149.333333333333,173.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="533.5,144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-84.8333333333334,185"
+              Start="0,0"
+              End="-84.8333333333334,177.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,106.136186770428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,106.136186770428"
+                    Point2="0,110.136186770428"
+                    Point3="-4,110.136186770428" />
+                  <mssgle:LineSegment
+                    End="-80.8333333333334,110.136186770428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-80.8333333333334,110.136186770428"
+                    Point2="-84.8333333333334,110.136186770428"
+                    Point3="-84.8333333333334,114.136186770428" />
+                  <mssgle:LineSegment
+                    End="-84.8333333333334,177.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -990,25 +1369,37 @@ FROM dbo.charge;</property>
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_Charge_SQL\OLE DB Source"
-          TopLeft="314,234.5" />
+          TopLeft="284,159.5" />
         <NodeLayout
           Size="177,42"
           Id="Package\DF_Load_Charge_SQL\OLE DB Destination"
           TopLeft="302,543" />
         <EdgeLayout
           Id="Package\DF_Load_Charge_SQL.Paths[OLE DB Source Output]"
-          TopLeft="391.5,276.5">
+          TopLeft="362.5,201.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,266.5"
+              EndConnector="28,341.5"
               Start="0,0"
-              End="0,259">
+              End="28,334">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,259" />
+                    End="0,166.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,166.75"
+                    Point2="0,170.75"
+                    Point3="4,170.75" />
+                  <mssgle:LineSegment
+                    End="24,170.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24,170.75"
+                    Point2="28,170.75"
+                    Point3="28,174.75" />
+                  <mssgle:LineSegment
+                    End="28,334" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1043,6 +1434,70 @@ FROM dbo.charge;</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DF_Load_Charge_Excel\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF_Load_STG_Category">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DF_Load_STG_Category\OLE DB Source"
+          TopLeft="457,52" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DF_Load_STG_Category\OLE DB Destination"
+          TopLeft="445,377" />
+        <EdgeLayout
+          Id="Package\DF_Load_STG_Category.Paths[OLE DB Source Output]"
+          TopLeft="534.5,94">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,283"
+              Start="0,0"
+              End="0,275.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,275.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Load_STG_Category\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Load_STG_Category\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
