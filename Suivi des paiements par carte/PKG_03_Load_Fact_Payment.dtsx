@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_03_Load_Fact_Payment"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{CB2E8943-DBCB-4DC9-BA5E-2E5120773382}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{519C5AD5-4C47-4EA7-8F30-9D5EB09C2DA1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1272,6 +1272,10 @@ where [refTable].[ProviderNo] = ?</property>
           Id="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member"
           TopLeft="688.111111111111,229.222222222222" />
         <NodeLayout
+          Size="157,42"
+          Id="Package\DF_Load_FACT_Payment\OLE DB Source"
+          TopLeft="378.666666666667,142.666666666667" />
+        <NodeLayout
           Size="234,46"
           Id="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider"
           TopLeft="706.222222222222,325.333333333333" />
@@ -1287,6 +1291,28 @@ where [refTable].[ProviderNo] = ?</property>
           Size="158,42"
           Id="Package\DF_Load_FACT_Payment\Derived Column"
           TopLeft="748.944444444445,536.388888888888" />
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[OLE DB Source Output]"
+          TopLeft="535.666666666667,163.277777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="179.777777777778,0"
+              Start="0,0"
+              End="172.277777777778,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="172.277777777778,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output3]"
           TopLeft="825.638888888889,471.555555555555">
@@ -1307,7 +1333,7 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-83.24173828125,22.8619791666666,166.4834765625,11.609375"
+              BoundingBox="-83.24173828125,22.8619791666666,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1331,7 +1357,7 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-83.24173828125,19.5564236111111,166.4834765625,11.609375"
+              BoundingBox="-83.24173828125,19.5564236111111,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1355,7 +1381,7 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-83.24173828125,17.5008680555555,166.4834765625,11.609375"
+              BoundingBox="-83.24173828125,17.5008680555555,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1379,7 +1405,7 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-87.48673828125,13.1119791666667,174.9734765625,11.609375"
+              BoundingBox="-87.48673828125,13.1119791666667,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1402,37 +1428,7 @@ where [refTable].[ProviderNo] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-145.832894965278,5,61.110234375,11.228515625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157,42"
-          Id="Package\DF_Load_FACT_Payment\OLE DB Source"
-          TopLeft="378.666666666667,142.666666666667" />
-        <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[OLE DB Source Output]"
-          TopLeft="535.666666666667,163.277777777778">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="179.777777777778,0"
-              Start="0,0"
-              End="172.277777777778,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="172.277777777778,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="51.6244162326389,5,69.0289453125,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1444,7 +1440,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1454,7 +1450,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1467,7 +1463,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1477,10 +1473,23 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Load_FACT_Payment\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -1490,7 +1499,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1500,7 +1509,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1526,7 +1535,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1536,23 +1545,10 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF_Load_FACT_Payment\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

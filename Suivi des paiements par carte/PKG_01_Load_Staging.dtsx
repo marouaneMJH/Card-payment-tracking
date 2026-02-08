@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_01_Load_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{584698DA-8C6F-4E37-818A-9090DA93D911}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{13221301-6BE6-405F-A012-04D7E1B2E6F0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -938,7 +938,7 @@ FROM dbo.charge;</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dw].[DIM_Category]</property>
+                  name="OpenRowset">[stg].[STG_Category]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -998,7 +998,7 @@ FROM dbo.charge;</property>
                       refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[category_no]"
                       cachedDataType="i4"
                       cachedName="category_no"
-                      externalMetadataColumnId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryNo]"
+                      externalMetadataColumnId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_no]"
                       lineageId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_no]" />
                     <inputColumn
                       refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[category_desc]"
@@ -1006,25 +1006,21 @@ FROM dbo.charge;</property>
                       cachedDataType="str"
                       cachedLength="31"
                       cachedName="category_desc"
-                      externalMetadataColumnId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryDesc]"
+                      externalMetadataColumnId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_desc]"
                       lineageId="Package\DF_Load_STG_Category\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_desc]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryKey]"
+                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_no]"
                       dataType="i4"
-                      name="CategoryKey" />
+                      name="category_no" />
                     <externalMetadataColumn
-                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryNo]"
-                      dataType="i4"
-                      name="CategoryNo" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryDesc]"
+                      refId="Package\DF_Load_STG_Category\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_desc]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="CategoryDesc" />
+                      name="category_desc" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2484,7 +2480,7 @@ FROM dbo.region;</property>
         <NodeLayout
           Size="199,42"
           Id="Package\DF_Load_Charge_Excel"
-          TopLeft="645.25,98.25" />
+          TopLeft="645.25,97.25" />
         <NodeLayout
           Size="194,42"
           Id="Package\DF_Load_Charge_SQL"
@@ -2509,6 +2505,10 @@ FROM dbo.region;</property>
           Size="194,42"
           Id="Package\DF_Load_STG_Region"
           TopLeft="437.5,281.25" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\ETL_Truncate_Staging"
+          TopLeft="453.75,13.75" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="349,150.5">
@@ -2545,30 +2545,30 @@ FROM dbo.region;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="744.75,140.25">
+          TopLeft="744.75,139.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-179.833333333333,63.75"
+              EndConnector="-179.833333333333,64.75"
               Start="0,0"
-              End="-179.833333333333,56.25">
+              End="-179.833333333333,57.25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.9523346303502" />
+                    End="0,34.5476653696498" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.9523346303502"
-                    Point2="0,37.9523346303502"
-                    Point3="-4,37.9523346303502" />
+                    Point1="0,34.5476653696498"
+                    Point2="0,38.5476653696498"
+                    Point3="-4,38.5476653696498" />
                   <mssgle:LineSegment
-                    End="-175.833333333333,37.9523346303502" />
+                    End="-175.833333333333,38.5476653696498" />
                   <mssgle:CubicBezierSegment
-                    Point1="-175.833333333333,37.9523346303502"
-                    Point2="-179.833333333333,37.9523346303502"
-                    Point3="-179.833333333333,41.9523346303502" />
+                    Point1="-175.833333333333,38.5476653696498"
+                    Point2="-179.833333333333,38.5476653696498"
+                    Point3="-179.833333333333,42.5476653696498" />
                   <mssgle:LineSegment
-                    End="-179.833333333333,56.25" />
+                    End="-179.833333333333,57.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2665,36 +2665,32 @@ FROM dbo.region;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="192,42"
-          Id="Package\ETL_Truncate_Staging"
-          TopLeft="453.75,13.75" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="580.416666666667,55.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="164.333333333333,42.5"
+              EndConnector="164.333333333333,41.5"
               Start="0,0"
-              End="164.333333333333,35">
+              End="164.333333333333,34">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.2107438016529" />
+                    End="0,12.8057851239669" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.2107438016529"
-                    Point2="0,17.2107438016529"
-                    Point3="4,17.2107438016529" />
+                    Point1="0,12.8057851239669"
+                    Point2="0,16.8057851239669"
+                    Point3="4,16.8057851239669" />
                   <mssgle:LineSegment
-                    End="160.333333333333,17.2107438016529" />
+                    End="160.333333333333,16.8057851239669" />
                   <mssgle:CubicBezierSegment
-                    Point1="160.333333333333,17.2107438016529"
-                    Point2="164.333333333333,17.2107438016529"
-                    Point3="164.333333333333,21.2107438016529" />
+                    Point1="160.333333333333,16.8057851239669"
+                    Point2="164.333333333333,16.8057851239669"
+                    Point3="164.333333333333,20.8057851239669" />
                   <mssgle:LineSegment
-                    End="164.333333333333,35" />
+                    End="164.333333333333,34" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2744,7 +2740,7 @@ FROM dbo.region;</property>
     design-time-name="Package\DF_Load_Charge_Excel">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="177,67"
           Id="Package\DF_Load_Charge_Excel\OLE DB Destination"
@@ -2784,9 +2780,7 @@ FROM dbo.region;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2809,7 +2803,7 @@ FROM dbo.region;</property>
     design-time-name="Package\DF_Load_Charge_SQL">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_Charge_SQL\OLE DB Source"
@@ -2849,9 +2843,7 @@ FROM dbo.region;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2882,37 +2874,47 @@ FROM dbo.region;</property>
     design-time-name="Package\DF_Load_STG_Category">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_STG_Category\OLE DB Source"
-          TopLeft="457,52" />
+          TopLeft="432,64" />
         <NodeLayout
           Size="177,42"
           Id="Package\DF_Load_STG_Category\OLE DB Destination"
-          TopLeft="445,377" />
+          TopLeft="438,359" />
         <EdgeLayout
           Id="Package\DF_Load_STG_Category.Paths[OLE DB Source Output]"
-          TopLeft="534.5,94">
+          TopLeft="510.5,106">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,283"
+              EndConnector="16,253"
               Start="0,0"
-              End="0,275.5">
+              End="16,245.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,275.5" />
+                    End="0,122.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,122.5"
+                    Point2="0,126.5"
+                    Point3="4,126.5" />
+                  <mssgle:LineSegment
+                    End="12,126.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,126.5"
+                    Point2="16,126.5"
+                    Point3="16,130.5" />
+                  <mssgle:LineSegment
+                    End="16,245.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2948,7 +2950,7 @@ FROM dbo.region;</property>
     design-time-name="Package\DF_Load_STG_Corporation">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_STG_Corporation\OLE DB Source"
@@ -2976,9 +2978,7 @@ FROM dbo.region;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3009,7 +3009,7 @@ FROM dbo.region;</property>
     design-time-name="Package\DF_Load_STG_Member">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_STG_Member\OLE DB Source"
@@ -3037,9 +3037,7 @@ FROM dbo.region;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3070,7 +3068,7 @@ FROM dbo.region;</property>
     design-time-name="Package\DF_Load_STG_Provider">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_STG_Provider\OLE DB Source"
@@ -3098,9 +3096,7 @@ FROM dbo.region;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3131,7 +3127,7 @@ FROM dbo.region;</property>
     design-time-name="Package\DF_Load_STG_Region">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_STG_Region\OLE DB Source"
@@ -3159,9 +3155,7 @@ FROM dbo.region;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
