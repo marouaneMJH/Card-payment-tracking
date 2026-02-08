@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_03_Load_Fact_Payment"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{A1953A34-DC02-40E2-A9C7-F5DA18B8C4C4}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{CB2E8943-DBCB-4DC9-BA5E-2E5120773382}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -179,7 +179,7 @@ where [refTable].[CategoryNo] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -200,7 +200,7 @@ where [refTable].[CategoryNo] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DF_Load_FACT_Payment\143:invalid};</property>
+                  name="ParameterMap">#{Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_no]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -247,7 +247,6 @@ where [refTable].[CategoryNo] = ?</property>
                 <output
                   refId="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category.Inputs[Lookup Input]">
@@ -337,7 +336,7 @@ where [refTable].[FullDate] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -358,7 +357,7 @@ where [refTable].[FullDate] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DF_Load_FACT_Payment\144:invalid};</property>
+                  name="ParameterMap">#{Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[charge_date]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -405,7 +404,6 @@ where [refTable].[FullDate] = ?</property>
                 <output
                   refId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Inputs[Lookup Input]">
@@ -1083,7 +1081,7 @@ where [refTable].[ProviderNo] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -1104,7 +1102,7 @@ where [refTable].[ProviderNo] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DF_Load_FACT_Payment\142:invalid};</property>
+                  name="ParameterMap">#{Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[provider_no]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1151,7 +1149,6 @@ where [refTable].[ProviderNo] = ?</property>
                 <output
                   refId="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider.Inputs[Lookup Input]">
@@ -1310,7 +1307,7 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,22.8619791666666,96.3827734375,11.609375"
+              BoundingBox="-83.24173828125,22.8619791666666,166.4834765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1334,7 +1331,7 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,19.5564236111111,96.3827734375,11.609375"
+              BoundingBox="-83.24173828125,19.5564236111111,166.4834765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1358,7 +1355,7 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,17.5008680555555,96.3827734375,11.609375"
+              BoundingBox="-83.24173828125,17.5008680555555,166.4834765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1382,7 +1379,7 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,13.1119791666667,96.3827734375,11.609375"
+              BoundingBox="-87.48673828125,13.1119791666667,174.9734765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1405,7 +1402,9 @@ where [refTable].[ProviderNo] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-145.832894965278,5,61.110234375,11.228515625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -1431,7 +1430,9 @@ where [refTable].[ProviderNo] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="51.6244162326389,5,69.0289453125,11.228515625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1443,7 +1444,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1453,7 +1454,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1489,7 +1490,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1499,7 +1500,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1525,7 +1526,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1535,7 +1536,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
