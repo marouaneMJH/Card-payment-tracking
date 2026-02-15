@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_03_Load_Fact_Payment"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{519C5AD5-4C47-4EA7-8F30-9D5EB09C2DA1}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{7B9F5401-ED33-4C89-B0C7-CDA30BD736AE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -908,7 +908,7 @@ where [refTable].[MemberNo] = ?</property>
                       refId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[member_no]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[member_no]"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[member_no]"
                       name="member_no"
@@ -917,7 +917,7 @@ where [refTable].[MemberNo] = ?</property>
                       refId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[provider_no]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[provider_no]"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[provider_no]"
                       name="provider_no"
@@ -926,7 +926,7 @@ where [refTable].[MemberNo] = ?</property>
                       refId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_no]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[category_no]"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_no]"
                       name="category_no"
@@ -935,7 +935,7 @@ where [refTable].[MemberNo] = ?</property>
                       refId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[charge_date]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[charge_date]"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[charge_date]"
                       name="charge_date"
@@ -944,7 +944,7 @@ where [refTable].[MemberNo] = ?</property>
                       refId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_amount]"
                       dataType="cy"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[payment_amount]"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_amount]"
                       name="payment_amount"
@@ -954,7 +954,7 @@ where [refTable].[MemberNo] = ?</property>
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystem]"
                       length="10"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystem]"
@@ -1270,13 +1270,13 @@ where [refTable].[ProviderNo] = ?</property>
         <NodeLayout
           Size="275,42"
           Id="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member"
-          TopLeft="688.111111111111,229.222222222222" />
+          TopLeft="686.111111111111,229.222222222222" />
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_FACT_Payment\OLE DB Source"
           TopLeft="378.666666666667,142.666666666667" />
         <NodeLayout
-          Size="234,46"
+          Size="234,42"
           Id="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider"
           TopLeft="706.222222222222,325.333333333333" />
         <NodeLayout
@@ -1290,7 +1290,7 @@ where [refTable].[ProviderNo] = ?</property>
         <NodeLayout
           Size="158,42"
           Id="Package\DF_Load_FACT_Payment\Derived Column"
-          TopLeft="748.944444444445,536.388888888888" />
+          TopLeft="749.944444444445,537.388888888888" />
         <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[OLE DB Source Output]"
           TopLeft="535.666666666667,163.277777777778">
@@ -1315,55 +1315,55 @@ where [refTable].[ProviderNo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output3]"
-          TopLeft="825.638888888889,471.555555555555">
+          TopLeft="826.138888888889,471.555555555555">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,64.8333333333332"
+              EndConnector="0,65.833333333333"
               Start="0,0"
-              End="0,57.3333333333332">
+              End="0,58.333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.3333333333332" />
+                    End="0,58.333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-83.24173828125,22.8619791666666,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,23.3619791666665,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output2]"
-          TopLeft="823.277777777778,371.333333333333">
+          TopLeft="823.277777777777,367.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.2222222222222"
+              EndConnector="0,62.222222222222"
               Start="0,0"
-              End="0,50.7222222222222">
+              End="0,54.722222222222">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.7222222222222" />
+                    End="0,54.722222222222" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-83.24173828125,19.5564236111111,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,21.556423611111,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output1]"
-          TopLeft="824.416666666667,271.222222222222">
+          TopLeft="823.416666666667,271.222222222222">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1381,48 +1381,48 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-83.24173828125,17.5008680555555,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,17.5008680555555,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output]"
-          TopLeft="825.277777777778,183.888888888889">
+          TopLeft="824.277777777777,183.888888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45.3333333333334"
+              EndConnector="0,45.333333333333"
               Start="0,0"
-              End="0,37.8333333333334">
+              End="0,37.833333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.8333333333334" />
+                    End="0,37.833333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-87.48673828125,13.1119791666667,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,13.1119791666665,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[Derived Column Output]"
-          TopLeft="748.944444444445,558.472222222221">
+          TopLeft="749.944444444445,558.972222222221">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-238.055555555556,0"
+              EndConnector="-239.055555555556,0"
               Start="0,0"
-              End="-230.555555555556,0">
+              End="-231.555555555556,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-230.555555555556,0" />
+                    End="-231.555555555556,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1440,7 +1440,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1463,7 +1463,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1473,7 +1473,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1499,7 +1499,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
