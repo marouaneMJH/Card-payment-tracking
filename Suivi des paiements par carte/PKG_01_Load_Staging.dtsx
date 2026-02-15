@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_01_Load_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{13221301-6BE6-405F-A012-04D7E1B2E6F0}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{B3B3B9D3-223F-43B2-8629-6CB9BF8420E8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -42,9 +42,21 @@
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[CN_Excel_Charges]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{FD51048D-F2D3-4500-B39E-784D148FB4C5}"
+      DTS:ObjectName="CN_Excel_Charges">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Qusai\Documents\ILISI_S3\Business Intelligence\Charges (1).xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CN_Excel_Charges2]"
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{03A42A2D-9026-47CB-87E0-53BB63CBB5F8}"
-      DTS:ObjectName="CN_Excel_Charges">
+      DTS:ObjectName="CN_Excel_Charges2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -63,7 +75,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="member"
-              DTS:DTSID="{EECC68F6-8817-4C52-861B-F1B4CB8A7B62}"
+              DTS:DTSID="{928E850E-54ED-4F6F-9115-724680052CA8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -72,7 +84,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="provider"
-              DTS:DTSID="{CF0B8D30-A338-43C4-8776-C8260964F8A0}"
+              DTS:DTSID="{122D8F8E-B2E3-456A-BE16-F01F0E39B5A7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -81,7 +93,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="category"
-              DTS:DTSID="{5048D904-6CF2-4246-B265-F3CF99039208}"
+              DTS:DTSID="{CBBD2BC1-4F4F-4916-A02E-BD1C278640A2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -90,7 +102,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="charge date"
-              DTS:DTSID="{F6647388-A96D-4B20-8404-6A2F6025CD2D}"
+              DTS:DTSID="{88FAE5EA-6679-40A5-9814-68D1D174F07B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -99,7 +111,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName=" charge amount"
-              DTS:DTSID="{D993FA73-5BF3-4F77-B978-75583402CF61}"
+              DTS:DTSID="{DE14C580-36E4-44F1-A8D6-22C80C329B33}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -123,203 +135,171 @@
           version="1">
           <components>
             <component
-              refId="Package\DF_Load_Charge_Excel\Excel Source"
-              componentClassID="Microsoft.FlatFileSource"
-              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Flat File Source"
-              localeId="1033"
-              name="Excel Source"
+              refId="Package\DF_Load_Charge_Excel\Excel Source 1"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source 1"
               usesDispositions="true"
               version="1">
               <properties>
                 <property
-                  dataType="System.Boolean"
-                  description="Specifies whether zero-length columns are treated as null."
-                  name="RetainNulls">false</property>
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
                 <property
                   dataType="System.String"
-                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
-                  name="FileNameColumnName"></property>
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Feuil2$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\DF_Load_Charge_Excel\Excel Source.Connections[FlatFileConnection]"
+                  refId="Package\DF_Load_Charge_Excel\Excel Source 1.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[CN_Excel_Charges]"
                   connectionManagerRefId="Package.ConnectionManagers[CN_Excel_Charges]"
-                  name="FlatFileConnection" />
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output]"
-                  name="Flat File Source Output">
+                  refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[member]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[member]"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].ExternalColumns[member]"
-                      length="50"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[member]"
+                      externalMetadataColumnId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[member]"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[member]"
                       name="member"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
+                      truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[provider]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[provider]"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].ExternalColumns[provider]"
-                      length="50"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[provider]"
+                      externalMetadataColumnId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[provider]"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[provider]"
                       name="provider"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
+                      truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[category]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[category]"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].ExternalColumns[category]"
-                      length="50"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[category]"
+                      externalMetadataColumnId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[category]"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[category]"
                       name="category"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
+                      truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[charge date]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[charge date]"
+                      dataType="date"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].ExternalColumns[charge date]"
-                      length="50"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[charge date]"
+                      externalMetadataColumnId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[charge date]"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[charge date]"
                       name="charge date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
+                      truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[ charge amount]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[charge amount]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].ExternalColumns[ charge amount]"
-                      length="50"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[ charge amount]"
-                      name=" charge amount"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
+                      externalMetadataColumnId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[charge amount]"
+                      length="255"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[charge amount]"
+                      name="charge amount"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].ExternalColumns[member]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[member]"
+                      dataType="r8"
                       name="member" />
                     <externalMetadataColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].ExternalColumns[provider]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[provider]"
+                      dataType="r8"
                       name="provider" />
                     <externalMetadataColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].ExternalColumns[category]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[category]"
+                      dataType="r8"
                       name="category" />
                     <externalMetadataColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].ExternalColumns[charge date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[charge date]"
+                      dataType="date"
                       name="charge date" />
                     <externalMetadataColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].ExternalColumns[ charge amount]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name=" charge amount" />
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[charge amount]"
+                      dataType="wstr"
+                      length="255"
+                      name="charge amount" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Error Output]"
+                  refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output]"
                   isErrorOut="true"
-                  name="Flat File Source Error Output">
+                  name="Excel Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      codePage="1252"
-                      dataType="text"
-                      description="Flat File Source Error Output Column"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      name="Flat File Source Error Output Column" />
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[member]"
+                      dataType="r8"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[member]"
+                      name="member" />
                     <outputColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[provider]"
+                      dataType="r8"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[provider]"
+                      name="provider" />
+                    <outputColumn
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[category]"
+                      dataType="r8"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[category]"
+                      name="category" />
+                    <outputColumn
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[charge date]"
+                      dataType="date"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[charge date]"
+                      name="charge date" />
+                    <outputColumn
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[charge amount]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[charge amount]"
+                      name="charge amount" />
+                    <outputColumn
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -401,44 +381,35 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[member]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
+                      cachedDataType="r8"
                       cachedName="member"
                       externalMetadataColumnId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[member_no]"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[member]" />
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[member]" />
                     <inputColumn
                       refId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[provider]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
+                      cachedDataType="r8"
                       cachedName="provider"
                       externalMetadataColumnId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[provider_no]"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[provider]" />
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[provider]" />
                     <inputColumn
                       refId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[category]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
+                      cachedDataType="r8"
                       cachedName="category"
                       externalMetadataColumnId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[category_no]"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[category]" />
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[category]" />
                     <inputColumn
                       refId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[charge date]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
+                      cachedDataType="date"
                       cachedName="charge date"
                       externalMetadataColumnId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[charge_dt]"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[charge date]" />
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[charge date]" />
                     <inputColumn
-                      refId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ charge amount]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName=" charge amount"
+                      refId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[charge amount]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="charge amount"
                       externalMetadataColumnId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[charge_amt]"
-                      lineageId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output].Columns[ charge amount]" />
+                      lineageId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output].Columns[charge amount]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -499,10 +470,10 @@
           </components>
           <paths>
             <path
-              refId="Package\DF_Load_Charge_Excel.Paths[Flat File Source Output]"
+              refId="Package\DF_Load_Charge_Excel.Paths[Excel Source Output]"
               endId="Package\DF_Load_Charge_Excel\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Flat File Source Output"
-              startId="Package\DF_Load_Charge_Excel\Excel Source.Outputs[Flat File Source Output]" />
+              name="Excel Source Output"
+              startId="Package\DF_Load_Charge_Excel\Excel Source 1.Outputs[Excel Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2478,7 +2449,7 @@ FROM dbo.region;</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="199,42"
+          Size="198.666666666667,42"
           Id="Package\DF_Load_Charge_Excel"
           TopLeft="645.25,97.25" />
         <NodeLayout
@@ -2494,7 +2465,7 @@ FROM dbo.region;</property>
           Id="Package\DF_Load_STG_Corporation"
           TopLeft="422,435.75" />
         <NodeLayout
-          Size="199,42"
+          Size="198.666666666667,42"
           Id="Package\DF_Load_STG_Member"
           TopLeft="437.25,521.25" />
         <NodeLayout
@@ -2742,39 +2713,39 @@ FROM dbo.region;</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="177,67"
+          Size="174.666666666667,42.6666666666667"
           Id="Package\DF_Load_Charge_Excel\OLE DB Destination"
           TopLeft="559,348" />
         <NodeLayout
-          Size="144,65"
-          Id="Package\DF_Load_Charge_Excel\Excel Source"
-          TopLeft="517,141" />
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\DF_Load_Charge_Excel\Excel Source 1"
+          TopLeft="248.468739138451,86.4973660774025" />
         <EdgeLayout
-          Id="Package\DF_Load_Charge_Excel.Paths[Flat File Source Output]"
-          TopLeft="589,206">
+          Id="Package\DF_Load_Charge_Excel.Paths[Excel Source Output]"
+          TopLeft="323.802072471784,129.164032744069">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.5,142"
+              EndConnector="322.531260861549,218.835967255931"
               Start="0,0"
-              End="58.5,134.5">
+              End="322.531260861549,211.335967255931">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,67" />
+                    End="0,105.417983627965" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,67"
-                    Point2="0,71"
-                    Point3="4,71" />
+                    Point1="0,105.417983627965"
+                    Point2="0,109.417983627965"
+                    Point3="4,109.417983627965" />
                   <mssgle:LineSegment
-                    End="54.5,71" />
+                    End="318.531260861549,109.417983627965" />
                   <mssgle:CubicBezierSegment
-                    Point1="54.5,71"
-                    Point2="58.5,71"
-                    Point3="58.5,75" />
+                    Point1="318.531260861549,109.417983627965"
+                    Point2="322.531260861549,109.417983627965"
+                    Point3="322.531260861549,113.417983627965" />
                   <mssgle:LineSegment
-                    End="58.5,134.5" />
+                    End="322.531260861549,211.335967255931" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2805,11 +2776,11 @@ FROM dbo.region;</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="157,42"
+          Size="157.333333333334,42"
           Id="Package\DF_Load_Charge_SQL\OLE DB Source"
           TopLeft="284,159.5" />
         <NodeLayout
-          Size="177,42"
+          Size="177.333333333334,42"
           Id="Package\DF_Load_Charge_SQL\OLE DB Destination"
           TopLeft="302,543" />
         <EdgeLayout
@@ -3179,6 +3150,19 @@ FROM dbo.region;</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Load_Charge_Excel\Excel Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
