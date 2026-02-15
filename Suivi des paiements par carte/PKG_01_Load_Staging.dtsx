@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_01_Load_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{E3A0CC45-90B2-48C7-B0CE-EA7465BD99DB}">
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{5FCBB255-614D-46B2-8851-1C95FEE753BD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -54,7 +54,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\Stewie\Downloads\Charges.csv">
+          DTS:ConnectionString="C:\SSIS_Data\Charges.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -63,7 +63,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="member"
-              DTS:DTSID="{EECC68F6-8817-4C52-861B-F1B4CB8A7B62}"
+              DTS:DTSID="{DE8D6BC1-FC84-476C-BD10-4A98426B0CDF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -72,7 +72,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="provider"
-              DTS:DTSID="{CF0B8D30-A338-43C4-8776-C8260964F8A0}"
+              DTS:DTSID="{6740DB27-190E-46EA-9AA1-EC5B30E28715}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -81,7 +81,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="category"
-              DTS:DTSID="{5048D904-6CF2-4246-B265-F3CF99039208}"
+              DTS:DTSID="{31CE76CC-1257-4DBA-9DE8-91A872AD9B51}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -90,7 +90,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="charge date"
-              DTS:DTSID="{F6647388-A96D-4B20-8404-6A2F6025CD2D}"
+              DTS:DTSID="{7409B49D-91C3-4217-80A1-2A56C23F5CD5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -99,7 +99,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName=" charge amount"
-              DTS:DTSID="{D993FA73-5BF3-4F77-B978-75583402CF61}"
+              DTS:DTSID="{2187043D-AF7D-48F0-9C6F-874E5F53C85A}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>

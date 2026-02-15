@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_03_Load_Fact_Payment"
   DTS:PackageType="5"
-  DTS:VersionBuild="69"
-  DTS:VersionGUID="{C605DADE-FF16-4BB2-9E6F-D7D255E4CE56}">
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{D0AFA6AF-3E89-4308-ADBE-DFA16B6F37AE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -391,7 +391,7 @@
                 <input
                   refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="RedirectRow"
+                  errorRowDisposition="IgnoreFailure"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
@@ -912,203 +912,6 @@ where [refTable].[DateKey] = ? and [refTable].[MemberKey] = ? and [refTable].[Co
                   <externalMetadataColumns />
                 </output>
               </outputs>
-            </component>
-            <component
-              refId="Package\DF_Load_FACT_Payment\Flat File Destination"
-              componentClassID="Microsoft.FlatFileDestination"
-              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Flat File Destination"
-              localeId="1033"
-              name="Flat File Destination"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether the data will overwrite or append to the destination file."
-                  name="Overwrite">true</property>
-                <property
-                  dataType="System.Null"
-                  description="Specifies the text to write to the destination file before any data is written."
-                  expressionType="Notify"
-                  name="Header" />
-                <property
-                  dataType="System.Boolean"
-                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
-                  name="EscapeQualifier">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DF_Load_FACT_Payment\Flat File Destination.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Error  Management Output For no Existent fields]"
-                  connectionManagerRefId="Package.ConnectionManagers[Error  Management Output For no Existent fields]"
-                  name="FlatFileConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input]"
-                  hasSideEffects="true"
-                  name="Flat File Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[member_no]"
-                      cachedDataType="i4"
-                      cachedName="member_no"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[member_no]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[member_no]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[provider_no]"
-                      cachedDataType="i4"
-                      cachedName="provider_no"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[provider_no]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[provider_no]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[category_no]"
-                      cachedDataType="i4"
-                      cachedName="category_no"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[category_no]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[category_no]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[charge_date]"
-                      cachedDataType="dbDate"
-                      cachedName="charge_date"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[charge_date]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[charge_date]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[payment_amount]"
-                      cachedDataType="cy"
-                      cachedName="payment_amount"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[payment_amount]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[payment_amount]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[SourceSystem]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="SourceSystem"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SourceSystem]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[SourceSystem]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[DateKey]"
-                      cachedDataType="i4"
-                      cachedName="DateKey"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DateKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[DateKey]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[MemberKey]"
-                      cachedDataType="i4"
-                      cachedName="MemberKey"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MemberKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[MemberKey]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[CorporationKey]"
-                      cachedDataType="i4"
-                      cachedName="CorporationKey"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CorporationKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CorporationKey]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[RegionKey]"
-                      cachedDataType="i4"
-                      cachedName="RegionKey"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[RegionKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[RegionKey]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[ProviderKey]"
-                      cachedDataType="i4"
-                      cachedName="ProviderKey"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ProviderKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[ProviderKey]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[CategoryKey]"
-                      cachedDataType="i4"
-                      cachedName="CategoryKey"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CategoryKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CategoryKey]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[PaymentCount]"
-                      cachedDataType="i4"
-                      cachedName="PaymentCount"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PaymentCount]"
-                      lineageId="Package\DF_Load_FACT_Payment\Derived Column.Outputs[Derived Column Output].Columns[PaymentCount]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
-                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" />
-                    <inputColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
-                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[member_no]"
-                      dataType="i4"
-                      name="member_no" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[provider_no]"
-                      dataType="i4"
-                      name="provider_no" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[category_no]"
-                      dataType="i4"
-                      name="category_no" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[charge_date]"
-                      dataType="dbDate"
-                      name="charge_date" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[payment_amount]"
-                      dataType="cy"
-                      name="payment_amount" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SourceSystem]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="SourceSystem" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DateKey]"
-                      dataType="i4"
-                      name="DateKey" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MemberKey]"
-                      dataType="i4"
-                      name="MemberKey" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CorporationKey]"
-                      dataType="i4"
-                      name="CorporationKey" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[RegionKey]"
-                      dataType="i4"
-                      name="RegionKey" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ProviderKey]"
-                      dataType="i4"
-                      name="ProviderKey" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CategoryKey]"
-                      dataType="i4"
-                      name="CategoryKey" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PaymentCount]"
-                      dataType="i4"
-                      name="PaymentCount" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
-                      dataType="i4"
-                      name="ErrorCode" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
-                      dataType="i4"
-                      name="ErrorColumn" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
             </component>
             <component
               refId="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category"
@@ -1718,7 +1521,7 @@ where [refTable].[MemberNo] = ?</property>
                 <input
                   refId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="RedirectRow"
+                  errorRowDisposition="IgnoreFailure"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
@@ -2689,11 +2492,6 @@ where [refTable].[ProviderNo] = ?</property>
               name="Multicast Output 2"
               startId="Package\DF_Load_FACT_Payment\Multicast.Outputs[Multicast Output 2]" />
             <path
-              refId="Package\DF_Load_FACT_Payment.Paths[OLE DB Destination Error Output]"
-              endId="Package\DF_Load_FACT_Payment\Flat File Destination.Inputs[Flat File Destination Input]"
-              name="OLE DB Destination Error Output"
-              startId="Package\DF_Load_FACT_Payment\OLE DB Destination.Outputs[OLE DB Destination Error Output]" />
-            <path
               refId="Package\DF_Load_FACT_Payment.Paths[OLE DB Source Output]"
               endId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Inputs[Lookup Input]"
               name="OLE DB Source Output"
@@ -2733,21 +2531,9 @@ where [refTable].[ProviderNo] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="260,42"
-          Id="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category"
-          TopLeft="775.083333333333,491.055555555555" />
-        <NodeLayout
-          Size="193,42"
-          Id="Package\DF_Load_FACT_Payment\Check Existed Records"
-          TopLeft="519.75,759.25" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\DF_Load_FACT_Payment\OLE DB Destination"
-          TopLeft="241.138888888889,764.555555555555" />
-        <NodeLayout
-          Size="234,42"
-          Id="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider"
-          TopLeft="783.722222222222,369.333333333333" />
+          Size="123,42"
+          Id="Package\DF_Load_FACT_Payment\Union All"
+          TopLeft="763.75,649.25" />
         <NodeLayout
           Size="219,42"
           Id="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date"
@@ -2757,13 +2543,79 @@ where [refTable].[ProviderNo] = ?</property>
           Id="Package\DF_Load_FACT_Payment\Derived Column"
           TopLeft="755.694444444445,755.138888888888" />
         <NodeLayout
-          Size="157,42"
-          Id="Package\DF_Load_FACT_Payment\OLE DB Source"
-          TopLeft="125.416666666667,137.416666666667" />
+          Size="234,42"
+          Id="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider"
+          TopLeft="783.722222222222,369.333333333333" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\DF_Load_FACT_Payment\Auddit Log Table"
+          TopLeft="271.638888888889,332.138888888888" />
         <NodeLayout
           Size="275,42"
           Id="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member"
           TopLeft="768.361111111111,248.972222222222" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DF_Load_FACT_Payment\OLE DB Destination"
+          TopLeft="241.138888888889,764.555555555555" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DF_Load_FACT_Payment\OLE DB Source"
+          TopLeft="125.416666666667,137.416666666667" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\DF_Load_FACT_Payment\Check Existed Records"
+          TopLeft="519.75,759.25" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\DF_Load_FACT_Payment\Multicast"
+          TopLeft="452.75,656" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\DF_Load_FACT_Payment\Conditional Split"
+          TopLeft="566.25,492.25" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\DF_Load_FACT_Payment\Add DimensionName"
+          TopLeft="472.75,329" />
+        <NodeLayout
+          Size="260,42"
+          Id="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category"
+          TopLeft="775.083333333333,491.055555555555" />
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[Union All Output 1]"
+          TopLeft="825.25,691.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.44444444444503,63.888888888888"
+              Start="0,0"
+              End="9.44444444444503,56.388888888888">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.944444444444" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.944444444444"
+                    Point2="0,31.944444444444"
+                    Point3="4,31.944444444444" />
+                  <mssgle:LineSegment
+                    End="5.44444444444503,31.944444444444" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.44444444444503,31.944444444444"
+                    Point2="9.44444444444503,31.944444444444"
+                    Point3="9.44444444444503,35.944444444444" />
+                  <mssgle:LineSegment
+                    End="9.44444444444503,56.388888888888" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[OLE DB Source Output]"
           TopLeft="282.416666666667,160.652777777778">
@@ -2787,6 +2639,98 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[Multicast Output 2]"
+          TopLeft="495.083333333333,656">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-142.444444444444,-281.861111111112"
+              Start="0,0"
+              End="-142.444444444444,-274.361111111112">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-110.916087034065" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-110.916087034065"
+                    Point2="0,-114.916087034065"
+                    Point3="-4,-114.916087034065" />
+                  <mssgle:LineSegment
+                    End="-138.444444444444,-114.916087034065" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-138.444444444444,-114.916087034065"
+                    Point2="-142.444444444444,-114.916087034065"
+                    Point3="-142.444444444444,-118.916087034065" />
+                  <mssgle:LineSegment
+                    End="-142.444444444444,-274.361111111112" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[Multicast Output 1]"
+          TopLeft="575.75,673.625">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="188,0"
+              Start="0,0"
+              End="180.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="180.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[MissingDIMKey]"
+          TopLeft="645.75,492.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-52.3333333333334,-121.25"
+              Start="0,0"
+              End="-52.3333333333334,-113.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-68.1194474539545" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-68.1194474539545"
+                    Point2="0,-72.1194474539545"
+                    Point3="-4,-72.1194474539545" />
+                  <mssgle:LineSegment
+                    End="-48.3333333333334,-72.1194474539545" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-48.3333333333334,-72.1194474539545"
+                    Point2="-52.3333333333334,-72.1194474539545"
+                    Point3="-52.3333333333334,-76.1194474539545" />
+                  <mssgle:LineSegment
+                    End="-52.3333333333334,-113.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-60.1136002604167,-67.1194474539545,67.8938671875,11.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[Lookup No Match Output]"
           TopLeft="519.75,782.902777777777">
           <EdgeLayout.Curve>
@@ -2807,6 +2751,54 @@ where [refTable].[ProviderNo] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-102.861942274305,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output3]"
+          TopLeft="775.083333333333,512.652777777777">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.833333333333,0"
+              Start="0,0"
+              End="-42.333333333333,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-42.333333333333,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-69.3580533854165,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output2]"
+          TopLeft="906.402777777777,183.888888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.083333333333"
+              Start="0,0"
+              End="0,57.583333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.583333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,22.9869791666665,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2859,137 +2851,6 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output2]"
-          TopLeft="906.402777777777,183.888888888889">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,65.083333333333"
-              Start="0,0"
-              End="0,57.583333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.583333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,22.9869791666665,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\DF_Load_FACT_Payment\Conditional Split"
-          TopLeft="566.25,492.25" />
-        <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output3]"
-          TopLeft="775.083333333333,512.652777777777">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-49.833333333333,0"
-              Start="0,0"
-              End="-42.333333333333,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-42.333333333333,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-69.3580533854165,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="183,42"
-          Id="Package\DF_Load_FACT_Payment\Add DimensionName"
-          TopLeft="472.75,329" />
-        <NodeLayout
-          Size="162,42"
-          Id="Package\DF_Load_FACT_Payment\Auddit Log Table"
-          TopLeft="271.638888888889,332.138888888888" />
-        <AnnotationLayout
-          Text=""
-          ParentId="Package\DF_Load_FACT_Payment"
-          FontInfo="{assembly:Null}"
-          Size="29,40"
-          Id="4ccef754-257a-48ec-8f3c-0d01eab2ea23"
-          TopLeft="376,407" />
-        <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[Derived Column Output]"
-          TopLeft="755.694444444445,778.194444444444">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-42.944444444445,0"
-              Start="0,0"
-              End="-35.444444444445,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-35.444444444445,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="123,42"
-          Id="Package\DF_Load_FACT_Payment\Union All"
-          TopLeft="763.75,649.25" />
-        <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[Union All Output 1]"
-          TopLeft="825.25,691.25">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9.44444444444503,63.888888888888"
-              Start="0,0"
-              End="9.44444444444503,56.388888888888">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.944444444444" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.944444444444"
-                    Point2="0,31.944444444444"
-                    Point3="4,31.944444444444" />
-                  <mssgle:LineSegment
-                    End="5.44444444444503,31.944444444444" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.44444444444503,31.944444444444"
-                    Point2="9.44444444444503,31.944444444444"
-                    Point3="9.44444444444503,35.944444444444" />
-                  <mssgle:LineSegment
-                    End="9.44444444444503,56.388888888888" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="123,42"
-          Id="Package\DF_Load_FACT_Payment\Multicast"
-          TopLeft="452.75,656" />
-        <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[Derived Column Output1]"
           TopLeft="534.25,371">
           <EdgeLayout.Curve>
@@ -3012,99 +2873,25 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[Multicast Output 1]"
-          TopLeft="575.75,673.625">
+          Id="Package\DF_Load_FACT_Payment.Paths[Derived Column Output]"
+          TopLeft="755.694444444445,778.194444444444">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="188,0"
+              EndConnector="-42.944444444445,0"
               Start="0,0"
-              End="180.5,0">
+              End="-35.444444444445,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="180.5,0" />
+                    End="-35.444444444445,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[Multicast Output 2]"
-          TopLeft="495.083333333333,656">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-142.444444444444,-281.861111111112"
-              Start="0,0"
-              End="-142.444444444444,-274.361111111112">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-110.916087034065" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-110.916087034065"
-                    Point2="0,-114.916087034065"
-                    Point3="-4,-114.916087034065" />
-                  <mssgle:LineSegment
-                    End="-138.444444444444,-114.916087034065" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-138.444444444444,-114.916087034065"
-                    Point2="-142.444444444444,-114.916087034065"
-                    Point3="-142.444444444444,-118.916087034065" />
-                  <mssgle:LineSegment
-                    End="-142.444444444444,-274.361111111112" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="176,42"
-          Id="Package\DF_Load_FACT_Payment\Flat File Destination"
-          TopLeft="150.75,611.75" />
-        <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[OLE DB Destination Error Output]"
-          TopLeft="329.638888888889,764.555555555555">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-90.888888888889,-110.805555555555"
-              Start="0,0"
-              End="-90.888888888889,-103.305555555555">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-51.4027777777775" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-51.4027777777775"
-                    Point2="0,-55.4027777777775"
-                    Point3="-4,-55.4027777777775" />
-                  <mssgle:LineSegment
-                    End="-86.888888888889,-55.4027777777775" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-86.888888888889,-55.4027777777775"
-                    Point2="-90.888888888889,-55.4027777777775"
-                    Point3="-90.888888888889,-59.4027777777775" />
-                  <mssgle:LineSegment
-                    End="-90.888888888889,-103.305555555555" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-118.653350694445,-50.4027777777775,146.4178125,11.43359375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3143,47 +2930,18 @@ where [refTable].[ProviderNo] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[MissingDIMKey]"
-          TopLeft="645.75,492.25">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-52.3333333333334,-121.25"
-              Start="0,0"
-              End="-52.3333333333334,-113.75">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-68.1194474539545" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-68.1194474539545"
-                    Point2="0,-72.1194474539545"
-                    Point3="-4,-72.1194474539545" />
-                  <mssgle:LineSegment
-                    End="-48.3333333333334,-72.1194474539545" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-48.3333333333334,-72.1194474539545"
-                    Point2="-52.3333333333334,-72.1194474539545"
-                    Point3="-52.3333333333334,-76.1194474539545" />
-                  <mssgle:LineSegment
-                    End="-52.3333333333334,-113.75" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-60.1136002604167,-67.1194474539545,67.8938671875,11.384765625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <AnnotationLayout
+          Text=""
+          ParentId="Package\DF_Load_FACT_Payment"
+          FontInfo="{assembly:Null}"
+          Size="29,40"
+          Id="4ccef754-257a-48ec-8f3c-0d01eab2ea23"
+          TopLeft="376,407" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category">
+    design-time-name="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3193,7 +2951,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dw].[DIM_Category]</Value>
+          type="q3:string">[dw].[DIM_Date]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -3202,42 +2960,6 @@ where [refTable].[ProviderNo] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF_Load_FACT_Payment\Check Existed Records">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dw].[FACT_Payment]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF_Load_FACT_Payment\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3265,30 +2987,7 @@ where [refTable].[ProviderNo] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dw].[DIM_Date]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF_Load_FACT_Payment\OLE DB Source">
+    design-time-name="Package\DF_Load_FACT_Payment\Auddit Log Table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3296,7 +2995,7 @@ where [refTable].[ProviderNo] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">View</Value>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3324,7 +3023,7 @@ where [refTable].[ProviderNo] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DF_Load_FACT_Payment\Auddit Log Table">
+    design-time-name="Package\DF_Load_FACT_Payment\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3333,6 +3032,65 @@ where [refTable].[ProviderNo] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Load_FACT_Payment\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Load_FACT_Payment\Check Existed Records">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[FACT_Payment]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DIM_Category]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
