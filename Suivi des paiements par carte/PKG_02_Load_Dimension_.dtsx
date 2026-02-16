@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="2/7/2026 2:30:37 AM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="84"
-  DTS:VersionGUID="{6B9CB94B-F9B4-4382-836E-C73E5BAA9B72}">
+  DTS:VersionBuild="96"
+  DTS:VersionGUID="{E1D3EF81-41D8-4B33-A690-18224B24CD72}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,6 +31,23 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Add unknown record"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2D0D374C-84DE-4270-8619-35B664C6DF14}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Add unknown record"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{71B88A88-8582-4C7C-BDE4-5BEC8BB4C7D0}"
+          SQLTask:SqlStatementSource="&#xA;------------------------------------------------&#xA;-- STAGING SEED&#xA;------------------------------------------------&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1 &#xA;    FROM [stg].[STG_Corporation] &#xA;    WHERE corp_no = -1&#xA;)&#xA;BEGIN&#xA;    INSERT INTO [stg].[STG_Corporation] (&#xA;        corp_no,&#xA;        corp_name&#xA;    )&#xA;    VALUES (&#xA;        -1,&#xA;        'Unknown Corporation'&#xA;    );&#xA;END;&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1 &#xA;    FROM [stg].[STG_Region] &#xA;    WHERE region_no = -1&#xA;)&#xA;BEGIN&#xA;    INSERT INTO [stg].[STG_Region] (&#xA;        region_no,&#xA;        region_name&#xA;    )&#xA;    VALUES (&#xA;        -1,&#xA;        'Unknown Region'&#xA;    );&#xA;END;&#xA;&#xA;------------------------------------------------&#xA;-- DIMENSION SEED : REGION&#xA;------------------------------------------------&#xA;&#xA;SET IDENTITY_INSERT [dw].[DIM_Region] ON;&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1&#xA;    FROM [dw].[DIM_Region]&#xA;    WHERE RegionKey = -1&#xA;)&#xA;BEGIN&#xA;    INSERT INTO [dw].[DIM_Region] (&#xA;        RegionKey,&#xA;        RegionNo,&#xA;        RegionName&#xA;    )&#xA;    VALUES (&#xA;        -1,&#xA;        -1,&#xA;        'Unknown Region'&#xA;    );&#xA;END;&#xA;&#xA;SET IDENTITY_INSERT [dw].[DIM_Region] OFF;&#xA;&#xA;------------------------------------------------&#xA;-- DIMENSION SEED : CORPORATION&#xA;------------------------------------------------&#xA;&#xA;SET IDENTITY_INSERT [dw].[DIM_Corporation] ON;&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1&#xA;    FROM [dw].[DIM_Corporation]&#xA;    WHERE CorporationKey = -1&#xA;)&#xA;BEGIN&#xA;    INSERT INTO [dw].[DIM_Corporation] (&#xA;        CorporationKey,&#xA;        CorpNo,&#xA;        CorporationNameClean&#xA;    )&#xA;    VALUES (&#xA;        -1,&#xA;        -1,&#xA;        'Unknown Corporation'&#xA;    );&#xA;END;&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1&#xA;    FROM [dw].[DIM_Date]&#xA;    WHERE DateKey = -1&#xA;)&#xA;BEGIN&#xA;    INSERT INTO [dw].[DIM_Date] (&#xA;        DateKey,&#xA;        FullDate,&#xA;        DayNumber,&#xA;        MonthNumber,&#xA;        MonthName,&#xA;        YearNumber&#xA;    )&#xA;    VALUES (&#xA;        -1,&#xA;        '1900-01-01',&#xA;        1,&#xA;        1,&#xA;        'Unknown',&#xA;        1900&#xA;    );&#xA;END;&#xA;&#xA;&#xA;&#xA;SET IDENTITY_INSERT [dw].[DIM_Corporation] OFF;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\DF_Load_DIM_Category"
       DTS:CreationName="Microsoft.Pipeline"
@@ -2827,7 +2844,7 @@ where [refTable].[RegionNo] = ?</property>
                 <input
                   refId="Package\DF_Load_DIM_Region\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="IgnoreFailure"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
@@ -3055,24 +3072,7 @@ where [refTable].[RegionNo] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{71B88A88-8582-4C7C-BDE4-5BEC8BB4C7D0}"
-          SQLTask:SqlStatementSource="DECLARE @StartDate DATE, @EndDate DATE;&#xA;&#xA;SELECT&#xA;    @StartDate = MIN(charge_dt),&#xA;    @EndDate   = MAX(charge_dt)&#xA;FROM stg.STG_Charge_SQL;&#xA;&#xA;WITH Dates AS (&#xA;    SELECT @StartDate AS FullDate&#xA;    UNION ALL&#xA;    SELECT DATEADD(DAY, 1, FullDate)&#xA;    FROM Dates&#xA;    WHERE FullDate &lt; @EndDate&#xA;)&#xA;INSERT INTO dw.DIM_Date (DateKey, FullDate, DayNumber, MonthNumber, MonthName, YearNumber)&#xA;SELECT&#xA;    CONVERT(INT, FORMAT(FullDate, 'yyyyMMdd')),&#xA;    FullDate,&#xA;    DAY(FullDate),&#xA;    MONTH(FullDate),&#xA;    DATENAME(MONTH, FullDate),&#xA;    YEAR(FullDate)&#xA;FROM Dates&#xA;WHERE NOT EXISTS (&#xA;    SELECT 1 FROM dw.DIM_Date d&#xA;    WHERE d.FullDate = Dates.FullDate&#xA;)&#xA;OPTION (MAXRECURSION 0);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2D0D374C-84DE-4270-8619-35B664C6DF14}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{71B88A88-8582-4C7C-BDE4-5BEC8BB4C7D0}"
-          SQLTask:SqlStatementSource="&#xA;------------------------------------------------&#xA;-- STAGING SEED&#xA;------------------------------------------------&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1 &#xA;    FROM [stg].[STG_Corporation] &#xA;    WHERE corp_no = -1&#xA;)&#xA;BEGIN&#xA;    INSERT INTO [stg].[STG_Corporation] (&#xA;        corp_no,&#xA;        corp_name&#xA;    )&#xA;    VALUES (&#xA;        -1,&#xA;        'Unknown Corporation'&#xA;    );&#xA;END;&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1 &#xA;    FROM [stg].[STG_Region] &#xA;    WHERE region_no = -1&#xA;)&#xA;BEGIN&#xA;    INSERT INTO [stg].[STG_Region] (&#xA;        region_no,&#xA;        region_name&#xA;    )&#xA;    VALUES (&#xA;        -1,&#xA;        'Unknown Region'&#xA;    );&#xA;END;&#xA;&#xA;------------------------------------------------&#xA;-- DIMENSION SEED : REGION&#xA;------------------------------------------------&#xA;&#xA;SET IDENTITY_INSERT [dw].[DIM_Region] ON;&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1&#xA;    FROM [dw].[DIM_Region]&#xA;    WHERE RegionKey = -1&#xA;)&#xA;BEGIN&#xA;    INSERT INTO [dw].[DIM_Region] (&#xA;        RegionKey,&#xA;        RegionNo,&#xA;        RegionName&#xA;    )&#xA;    VALUES (&#xA;        -1,&#xA;        -1,&#xA;        'Unknown Region'&#xA;    );&#xA;END;&#xA;&#xA;SET IDENTITY_INSERT [dw].[DIM_Region] OFF;&#xA;&#xA;------------------------------------------------&#xA;-- DIMENSION SEED : CORPORATION&#xA;------------------------------------------------&#xA;&#xA;SET IDENTITY_INSERT [dw].[DIM_Corporation] ON;&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1&#xA;    FROM [dw].[DIM_Corporation]&#xA;    WHERE CorporationKey = -1&#xA;)&#xA;BEGIN&#xA;    INSERT INTO [dw].[DIM_Corporation] (&#xA;        CorporationKey,&#xA;        CorpNo,&#xA;        CorporationNameClean&#xA;    )&#xA;    VALUES (&#xA;        -1,&#xA;        -1,&#xA;        'Unknown Corporation'&#xA;    );&#xA;END;&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1&#xA;    FROM [dw].[DIM_Date]&#xA;    WHERE DateKey = -1&#xA;)&#xA;BEGIN&#xA;    INSERT INTO [dw].[DIM_Date] (&#xA;        DateKey,&#xA;        FullDate,&#xA;        DayNumber,&#xA;        MonthNumber,&#xA;        MonthName,&#xA;        YearNumber&#xA;    )&#xA;    VALUES (&#xA;        -1,&#xA;        '1900-01-01',&#xA;        1,&#xA;        1,&#xA;        'Unknown',&#xA;        1900&#xA;    );&#xA;END;&#xA;&#xA;&#xA;&#xA;SET IDENTITY_INSERT [dw].[DIM_Corporation] OFF;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DECLARE @StartDate DATE, @EndDate DATE;&#xA;&#xA;SELECT&#xA;    @StartDate = MIN(charge_dt),&#xA;    @EndDate   = MAX(charge_dt)&#xA;FROM (&#xA;    SELECT charge_dt FROM stg.STG_Charge_SQL&#xA;    UNION ALL&#xA;    SELECT charge_dt FROM stg.STG_Charge_Excel&#xA;) AS x;&#xA;&#xA;WITH Dates AS (&#xA;    SELECT @StartDate AS FullDate&#xA;    UNION ALL&#xA;    SELECT DATEADD(DAY, 1, FullDate)&#xA;    FROM Dates&#xA;    WHERE FullDate &lt; @EndDate&#xA;)&#xA;INSERT INTO dw.DIM_Date (DateKey, FullDate, DayNumber, MonthNumber, MonthName, YearNumber)&#xA;SELECT&#xA;    CONVERT(INT, FORMAT(FullDate, 'yyyyMMdd')),&#xA;    FullDate,&#xA;    DAY(FullDate),&#xA;    MONTH(FullDate),&#xA;    DATENAME(MONTH, FullDate),&#xA;    YEAR(FullDate)&#xA;FROM Dates&#xA;WHERE NOT EXISTS (&#xA;    SELECT 1 FROM dw.DIM_Date d&#xA;    WHERE d.FullDate = Dates.FullDate&#xA;)&#xA;OPTION (MAXRECURSION 0);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -3121,7 +3121,7 @@ where [refTable].[RegionNo] = ?</property>
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
       DTS:DTSID="{34693FE5-E138-4DC3-B206-45B88D4E689E}"
-      DTS:From="Package\Execute SQL Task"
+      DTS:From="Package\Add unknown record"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
       DTS:To="Package\ETL_Load_DIM_Date" />
@@ -3149,7 +3149,7 @@ where [refTable].[RegionNo] = ?</property>
         <NodeLayout
           Size="197,42"
           Id="Package\DF_Load_DIM_Member"
-          TopLeft="148,462" />
+          TopLeft="148,461" />
         <NodeLayout
           Size="198,42"
           Id="Package\DF_Load_DIM_Provider"
@@ -3163,9 +3163,9 @@ where [refTable].[RegionNo] = ?</property>
           Id="Package\ETL_Load_DIM_Date"
           TopLeft="364,267" />
         <NodeLayout
-          Size="170,67"
-          Id="Package\Execute SQL Task"
-          TopLeft="116.5,247.5" />
+          Size="180,42"
+          Id="Package\Add unknown record"
+          TopLeft="99.5,266.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="580,75.5">
@@ -3234,7 +3234,7 @@ where [refTable].[RegionNo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="795,482">
+          TopLeft="795,481.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3256,18 +3256,30 @@ where [refTable].[RegionNo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="482.75,267">
+          TopLeft="456.5,267">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-171"
+              EndConnector="23,-171"
               Start="0,0"
-              End="0,-163.5">
+              End="23,-163.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-163.5" />
+                    End="0,-81.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-81.5"
+                    Point2="0,-85.5"
+                    Point3="4,-85.5" />
+                  <mssgle:LineSegment
+                    End="19,-85.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19,-85.5"
+                    Point2="23,-85.5"
+                    Point3="23,-89.5" />
+                  <mssgle:LineSegment
+                    End="23,-163.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3278,18 +3290,18 @@ where [refTable].[RegionNo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="286.5,284.5">
+          TopLeft="279.5,287.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="77.5,0"
+              EndConnector="84.5,0"
               Start="0,0"
-              End="70,0">
+              End="77,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="70,0" />
+                    End="77,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3309,7 +3321,7 @@ where [refTable].[RegionNo] = ?</property>
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_DIM_Category\OLE DB Source"
-          TopLeft="204,167" />
+          TopLeft="204,164" />
         <NodeLayout
           Size="177,43"
           Id="Package\DF_Load_DIM_Category\OLE DB Destination"
@@ -3320,7 +3332,7 @@ where [refTable].[RegionNo] = ?</property>
           TopLeft="422.5,168.5" />
         <EdgeLayout
           Id="Package\DF_Load_DIM_Category.Paths[OLE DB Source Output]"
-          TopLeft="361,188.75">
+          TopLeft="361,187.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3337,9 +3349,7 @@ where [refTable].[RegionNo] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3458,9 +3468,7 @@ where [refTable].[RegionNo] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3530,9 +3538,7 @@ where [refTable].[RegionNo] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3595,11 +3601,11 @@ where [refTable].[RegionNo] = ?</property>
         <NodeLayout
           Size="237,42"
           Id="Package\DF_Load_DIM_Member\Existing Member (anti-duplicate)"
-          TopLeft="464.428571428571,579" />
+          TopLeft="599.428571428571,489" />
         <NodeLayout
           Size="155,42"
           Id="Package\DF_Load_DIM_Member\CorporationKey"
-          TopLeft="514,399" />
+          TopLeft="644,376" />
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_DIM_Member\OLE DB Source"
@@ -3607,220 +3613,178 @@ where [refTable].[RegionNo] = ?</property>
         <NodeLayout
           Size="133,42"
           Id="Package\DF_Load_DIM_Member\RegionKey"
-          TopLeft="532,312" />
+          TopLeft="661,256" />
         <NodeLayout
           Size="158,42"
           Id="Package\DF_Load_DIM_Member\Derived Column"
-          TopLeft="528.5,216.5" />
+          TopLeft="646.5,162.5" />
         <NodeLayout
           Size="177,42"
           Id="Package\DF_Load_DIM_Member\OLE DB Destination"
-          TopLeft="654.714285714286,760.285714285714" />
+          TopLeft="171.714285714286,492.285714285714" />
         <NodeLayout
           Size="316,42"
           Id="Package\DF_Load_DIM_Member\Add  -1 for empty regionKey and CorporationKey"
-          TopLeft="777.357142857143,649.642857142857" />
+          TopLeft="152.357142857143,352.642857142857" />
         <EdgeLayout
           Id="Package\DF_Load_DIM_Member.Paths[Lookup Match Output]"
-          TopLeft="595,354">
+          TopLeft="724.5,298">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45"
+              EndConnector="0,78"
               Start="0,0"
-              End="0,37.5">
+              End="0,70.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.5" />
+                    End="0,70.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.9453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,29.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_DIM_Member.Paths[Derived Column Output1]"
-          TopLeft="935.357142857143,691.642857142857">
+          TopLeft="259.619047619048,394.642857142857">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-192.142857142857,68.642857142857"
+              EndConnector="0,97.642857142857"
               Start="0,0"
-              End="-192.142857142857,61.142857142857">
+              End="0,90.142857142857">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.3214285714285" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.3214285714285"
-                    Point2="0,34.3214285714285"
-                    Point3="-4,34.3214285714285" />
-                  <mssgle:LineSegment
-                    End="-188.142857142857,34.3214285714285" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-188.142857142857,34.3214285714285"
-                    Point2="-192.142857142857,34.3214285714285"
-                    Point3="-192.142857142857,38.3214285714285" />
-                  <mssgle:LineSegment
-                    End="-192.142857142857,61.142857142857" />
+                    End="0,90.142857142857" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_DIM_Member.Paths[Derived Column Output]"
-          TopLeft="607.5,258.5">
+          TopLeft="726.5,204.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9,53.5"
+              EndConnector="0,51.5"
               Start="0,0"
-              End="-9,46">
+              End="0,44">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.75"
-                    Point2="0,26.75"
-                    Point3="-4,26.75" />
-                  <mssgle:LineSegment
-                    End="-5,26.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5,26.75"
-                    Point2="-9,26.75"
-                    Point3="-9,30.75" />
-                  <mssgle:LineSegment
-                    End="-9,46" />
+                    End="0,44" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_DIM_Member.Paths[OLE DB Source Output]"
-          TopLeft="524.5,172">
+          TopLeft="603,151">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="83,44.5"
+              EndConnector="43.5,32.5"
               Start="0,0"
-              End="83,37">
+              End="36,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.25" />
+                    End="17.75,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.25"
-                    Point2="0,22.25"
-                    Point3="4,22.25" />
+                    Point1="17.75,0"
+                    Point2="21.75,0"
+                    Point3="21.75,4" />
                   <mssgle:LineSegment
-                    End="79,22.25" />
+                    End="21.75,28.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="79,22.25"
-                    Point2="83,22.25"
-                    Point3="83,26.25" />
+                    Point1="21.75,28.5"
+                    Point2="21.75,32.5"
+                    Point3="25.75,32.5" />
                   <mssgle:LineSegment
-                    End="83,37" />
+                    End="36,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_DIM_Member.Paths[Lookup No Match Output]"
-          TopLeft="582.928571428571,621">
+          TopLeft="679.761904761904,489">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="352.428571428571,28.6428571428571"
+              EndConnector="-318.071428571428,-94.357142857143"
               Start="0,0"
-              End="352.428571428571,21.1428571428571">
+              End="-318.071428571428,-86.857142857143">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.3214285714286" />
+                    End="0,-43.2766557766559" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10.3214285714286"
-                    Point2="0,14.3214285714286"
-                    Point3="4,14.3214285714286" />
+                    Point1="0,-43.2766557766559"
+                    Point2="0,-47.2766557766559"
+                    Point3="-4,-47.2766557766559" />
                   <mssgle:LineSegment
-                    End="348.428571428571,14.3214285714286" />
+                    End="-314.071428571428,-47.2766557766559" />
                   <mssgle:CubicBezierSegment
-                    Point1="348.428571428571,14.3214285714286"
-                    Point2="352.428571428571,14.3214285714286"
-                    Point3="352.428571428571,18.3214285714286" />
+                    Point1="-314.071428571428,-47.2766557766559"
+                    Point2="-318.071428571428,-47.2766557766559"
+                    Point3="-318.071428571428,-51.2766557766559" />
                   <mssgle:LineSegment
-                    End="352.428571428571,21.1428571428571" />
+                    End="-318.071428571428,-86.857142857143" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="120.407898995536,19.3214285714286,111.6127734375,11.609375"
+              BoundingBox="-214.842101004464,-42.2766557766559,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_DIM_Member.Paths[Lookup Match Output1]"
-          TopLeft="591.5,441">
+          TopLeft="719.714285714286,418">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.57142857142856,138"
+              EndConnector="0,71"
               Start="0,0"
-              End="-8.57142857142856,130.5">
+              End="0,63.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,65"
-                    Point2="0,69"
-                    Point3="-4,69" />
-                  <mssgle:LineSegment
-                    End="-4.57142857142856,69" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4.57142857142856,69"
-                    Point2="-8.57142857142856,69"
-                    Point3="-8.57142857142856,73" />
-                  <mssgle:LineSegment
-                    End="-8.57142857142856,130.5" />
+                    End="0,63.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-52.4771010044643,74,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,25.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3939,9 +3903,7 @@ where [refTable].[RegionNo] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4011,9 +3973,7 @@ where [refTable].[RegionNo] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4088,7 +4048,7 @@ where [refTable].[RegionNo] = ?</property>
         <NodeLayout
           Size="177,42"
           Id="Package\DF_Load_DIM_Region\OLE DB Destination"
-          TopLeft="547,359" />
+          TopLeft="546,358" />
         <EdgeLayout
           Id="Package\DF_Load_DIM_Region.Paths[OLE DB Source Output]"
           TopLeft="375,202.75">
@@ -4108,9 +4068,7 @@ where [refTable].[RegionNo] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4119,33 +4077,33 @@ where [refTable].[RegionNo] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-285,134"
+              EndConnector="-286,133"
               Start="0,0"
-              End="-285,126.5">
+              End="-286,125.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,63" />
+                    End="0,62.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,63"
-                    Point2="0,67"
-                    Point3="-4,67" />
+                    Point1="0,62.5"
+                    Point2="0,66.5"
+                    Point3="-4,66.5" />
                   <mssgle:LineSegment
-                    End="-281,67" />
+                    End="-282,66.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-281,67"
-                    Point2="-285,67"
-                    Point3="-285,71" />
+                    Point1="-282,66.5"
+                    Point2="-286,66.5"
+                    Point3="-286,70.5" />
                   <mssgle:LineSegment
-                    End="-285,126.5" />
+                    End="-286,125.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-198.30638671875,72,111.6127734375,11.609375"
+              BoundingBox="-198.80638671875,71.5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4168,9 +4126,7 @@ where [refTable].[RegionNo] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
