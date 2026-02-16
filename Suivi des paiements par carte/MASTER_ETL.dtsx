@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="MASTER_ETL"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{529A882E-4BF7-4BAA-85C9-D744440F5598}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{B8ABDAB9-D54A-42A5-90CF-1E1FD011E310}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -61,7 +61,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <ExecutePackageTask>
-          <Connection>{25A8294D-7290-43A1-A874-9B769816AAD2}</Connection>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PKG_02_Load_Dimension_.dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -77,7 +78,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <ExecutePackageTask>
-          <Connection>{C61B2109-525F-4CBE-9C03-58F741DA677A}</Connection>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PKG_03_Load_Fact_Payment.dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -93,7 +95,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <ExecutePackageTask>
-          <Connection>{72E1B26D-A6DE-4D3E-8B06-38CADC285362}</Connection>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PKG_01_Load_Staging.dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>

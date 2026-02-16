@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_03_Load_Fact_Payment"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{519C5AD5-4C47-4EA7-8F30-9D5EB09C2DA1}">
+  DTS:VersionBuild="84"
+  DTS:VersionGUID="{7F8A33CB-5D03-49EB-A259-4462A533B2ED}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,6 +26,146 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=localhost;Initial Catalog=CreditDW;Provider=MSOLEDBSQL19.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-PKG_01_Load_Staging-{71B88A88-8582-4C7C-BDE4-5BEC8BB4C7D0}Data Connection;Use Encryption for Data=False;Trust Server Certificate=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Error  Management Output For no Existent fields]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F3063B15-C5DB-486D-A95B-15FB8A21ACC8}"
+      DTS:ObjectName="Error  Management Output For no Existent fields">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Stewie\source\repos\Suivi des paiements par carte\Suivi des paiements par carte\3_fact-error-out.txt.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="member_no"
+              DTS:DTSID="{F1D9FAD4-45F9-4D85-87E6-871D22B2D254}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="provider_no"
+              DTS:DTSID="{0AA5B8AB-74B3-495C-B779-40CF02C2876E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_no"
+              DTS:DTSID="{E0E1A004-FBD7-419F-9EB0-B553A6B07304}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="charge_date"
+              DTS:DTSID="{2E64381D-4A4C-4194-A5E5-DD573EAD0C7A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="payment_amount"
+              DTS:DTSID="{378A32F7-E8E9-40BC-A6DB-A313B1D1BC4E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SourceSystem"
+              DTS:DTSID="{7B2A71F3-2E00-4BD2-A99B-E4C353C31619}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateKey"
+              DTS:DTSID="{777D5E02-EAF0-4B8E-9DD2-BD9BF279D5AB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MemberKey"
+              DTS:DTSID="{649BF147-AF89-4DB7-87F4-BDC6CBE0F24F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CorporationKey"
+              DTS:DTSID="{A5407E54-521B-49B4-AF62-5296B59F6AEE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegionKey"
+              DTS:DTSID="{F7058FDE-EE9F-4F93-995D-EFF72FA06314}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProviderKey"
+              DTS:DTSID="{2492A797-7E42-408D-A119-65346A220E47}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CategoryKey"
+              DTS:DTSID="{0E739497-FFE7-46FA-8675-8623C40C5EE1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PaymentCount"
+              DTS:DTSID="{05B75260-5C36-4820-AF44-918DCA61C1A6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{25222CBE-DC2B-420C-876D-E0B61148F630}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{6FAB19C7-ADC9-4CD2-BE65-57ADC6597FC3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -46,6 +186,514 @@
           version="1">
           <components>
             <component
+              refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Add DimensionName to audit table"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Inputs[Derived Column Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      lineageId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Inputs[Derived Column Input].Columns[RegionKey]"
+                      cachedDataType="i4"
+                      cachedName="RegionKey"
+                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[RegionKey]" />
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Inputs[Derived Column Input].Columns[CorporationKey]"
+                      cachedDataType="i4"
+                      cachedName="CorporationKey"
+                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[CorporationKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Output].Columns[DimensionName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Output].Columns[DimensionName]"
+                      name="DimensionName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)([ISNULL](#{Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output].Columns[DateKey]}) ? "Date" : [ISNULL](#{Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[RegionKey]}) ? "Region" : "Corporation")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)(ISNULL(DateKey) ? "Date" : ISNULL(RegionKey) ? "Region" : "Corporation")</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Output].Columns[SourceValue]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Output].Columns[SourceValue]"
+                      name="SourceValue"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)([ISNULL](#{Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output].Columns[DateKey]}) ? (DT_STR,50,1252)#{Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output].Columns[DateKey]} : [ISNULL](#{Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[RegionKey]}) ? (DT_STR,50,1252)#{Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[RegionKey]} : (DT_STR,50,1252)#{Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[CorporationKey]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)(ISNULL(DateKey) ? (DT_STR,50,1252)DateKey : ISNULL(RegionKey) ? (DT_STR,50,1252)RegionKey : (DT_STR,50,1252)CorporationKey)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Output].Columns[ReplacedKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Output].Columns[ReplacedKey]"
+                      name="ReplacedKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">-1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">-1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Load_FACT_Payment\Auddit Log Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Auddit Log Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[audit].[MissingDimensionAudit]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_CreditDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_CreditDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="IgnoreFailure"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input].Columns[DimensionName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DimensionName"
+                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input].ExternalColumns[DimensionName]"
+                      lineageId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Output].Columns[DimensionName]" />
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input].Columns[SourceValue]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SourceValue"
+                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input].ExternalColumns[SourceValue]"
+                      lineageId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Output].Columns[SourceValue]" />
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input].Columns[ReplacedKey]"
+                      cachedDataType="i4"
+                      cachedName="ReplacedKey"
+                      externalMetadataColumnId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input].ExternalColumns[ReplacedKey]"
+                      lineageId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Output].Columns[ReplacedKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input].ExternalColumns[AuditID]"
+                      dataType="i4"
+                      name="AuditID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input].ExternalColumns[DimensionName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DimensionName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input].ExternalColumns[SourceValue]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SourceValue" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input].ExternalColumns[ReplacedKey]"
+                      dataType="i4"
+                      name="ReplacedKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input].ExternalColumns[LoadTime]"
+                      dataType="dbTimeStamp"
+                      name="LoadTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Auddit Log Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Auddit Log Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Auddit Log Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Load_FACT_Payment\Check Existed Records"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check Existed Records"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dw].[FACT_Payment]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[FACT_Payment]) [refTable]
+where [refTable].[DateKey] = ? and [refTable].[MemberKey] = ? and [refTable].[CorporationKey] = ? and [refTable].[RegionKey] = ? and [refTable].[ProviderKey] = ? and [refTable].[CategoryKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PaymentKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MemberKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProviderKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CategoryKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RegionKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CorporationKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PaymentAmount" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PaymentCount" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceSystem" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[DateKey]};#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[MemberKey]};#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CorporationKey]};#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[RegionKey]};#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[ProviderKey]};#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CategoryKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Load_FACT_Payment\Check Existed Records.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_CreditDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_CreditDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_Load_FACT_Payment\Check Existed Records.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Check Existed Records.Inputs[Lookup Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[DateKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Check Existed Records.Inputs[Lookup Input].Columns[MemberKey]"
+                      cachedDataType="i4"
+                      cachedName="MemberKey"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[MemberKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">MemberKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Check Existed Records.Inputs[Lookup Input].Columns[CorporationKey]"
+                      cachedDataType="i4"
+                      cachedName="CorporationKey"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CorporationKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CorporationKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Check Existed Records.Inputs[Lookup Input].Columns[RegionKey]"
+                      cachedDataType="i4"
+                      cachedName="RegionKey"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[RegionKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">RegionKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Check Existed Records.Inputs[Lookup Input].Columns[ProviderKey]"
+                      cachedDataType="i4"
+                      cachedName="ProviderKey"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[ProviderKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ProviderKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Check Existed Records.Inputs[Lookup Input].Columns[CategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="CategoryKey"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CategoryKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CategoryKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\Check Existed Records.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\Check Existed Records.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\Check Existed Records.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\Check Existed Records.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\Check Existed Records.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\Check Existed Records.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Check Existed Records.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Check Existed Records.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Check Existed Records.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Check Existed Records.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DF_Load_FACT_Payment\Derived Column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -64,7 +712,7 @@
                       cachedName="payment_amount"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_amount]"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[payment_amount]"
                       truncationRowDisposition="FailComponent"
                       usageType="readWrite">
                       <properties>
@@ -72,13 +720,36 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_CY)#{Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_amount]}</property>
+                          name="Expression">(DT_CY)#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[payment_amount]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">(DT_CY)payment_amount</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Derived Column.Inputs[Derived Column Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[DateKey]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[DateKey]}) ? -1 : #{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[DateKey]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(DateKey) ? -1 : DateKey</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -179,7 +850,7 @@ where [refTable].[CategoryNo] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
+                  typeConverter="LookupNoMatchBehavior">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -247,6 +918,7 @@ where [refTable].[CategoryNo] = ?</property>
                 <output
                   refId="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category.Inputs[Lookup Input]">
@@ -336,7 +1008,7 @@ where [refTable].[FullDate] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
+                  typeConverter="LookupNoMatchBehavior">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -404,6 +1076,7 @@ where [refTable].[FullDate] = ?</property>
                 <output
                   refId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Inputs[Lookup Input]">
@@ -458,6 +1131,105 @@ where [refTable].[FullDate] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\DF_Load_FACT_Payment\If there is null key"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="If there is null key"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DF_Load_FACT_Payment\If there is null key.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\If there is null key.Inputs[Conditional Split Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      lineageId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\If there is null key.Inputs[Conditional Split Input].Columns[CorporationKey]"
+                      cachedDataType="i4"
+                      cachedName="CorporationKey"
+                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[CorporationKey]" />
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\If there is null key.Inputs[Conditional Split Input].Columns[RegionKey]"
+                      cachedDataType="i4"
+                      cachedName="RegionKey"
+                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[RegionKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\If there is null key.Outputs[MissingDIMKey]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="MissingDIMKey"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\If there is null key.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output].Columns[DateKey]}) || [ISNULL](#{Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[RegionKey]}) || [ISNULL](#{Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[CorporationKey]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(DateKey) || ISNULL(RegionKey) || ISNULL(CorporationKey)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\If there is null key.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\If there is null key.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\If there is null key.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\If there is null key.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\If there is null key.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\If there is null key.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\If there is null key.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\If there is null key.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -493,7 +1265,7 @@ where [refTable].[MemberNo] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
+                  typeConverter="LookupNoMatchBehavior">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -561,6 +1333,7 @@ where [refTable].[MemberNo] = ?</property>
                 <output
                   refId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Inputs[Lookup Input]">
@@ -643,6 +1416,44 @@ where [refTable].[MemberNo] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\DF_Load_FACT_Payment\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\DF_Load_FACT_Payment\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\Multicast.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\DF_Load_FACT_Payment\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DF_Load_FACT_Payment\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -710,7 +1521,7 @@ where [refTable].[MemberNo] = ?</property>
                 <input
                   refId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="IgnoreFailure"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
@@ -721,7 +1532,7 @@ where [refTable].[MemberNo] = ?</property>
                       cachedLength="10"
                       cachedName="SourceSystem"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystem]"
-                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystem]" />
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[SourceSystem]" />
                     <inputColumn
                       refId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PaymentCount]"
                       cachedDataType="i4"
@@ -733,43 +1544,43 @@ where [refTable].[MemberNo] = ?</property>
                       cachedDataType="i4"
                       cachedName="DateKey"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output].Columns[DateKey]" />
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[DateKey]" />
                     <inputColumn
                       refId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MemberKey]"
                       cachedDataType="i4"
                       cachedName="MemberKey"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MemberKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[MemberKey]" />
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[MemberKey]" />
                     <inputColumn
                       refId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProviderKey]"
                       cachedDataType="i4"
                       cachedName="ProviderKey"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProviderKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider.Outputs[Lookup Match Output].Columns[ProviderKey]" />
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[ProviderKey]" />
                     <inputColumn
                       refId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CategoryKey]"
                       cachedDataType="i4"
                       cachedName="CategoryKey"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category.Outputs[Lookup Match Output].Columns[CategoryKey]" />
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CategoryKey]" />
                     <inputColumn
                       refId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RegionKey]"
                       cachedDataType="i4"
                       cachedName="RegionKey"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegionKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[RegionKey]" />
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[RegionKey]" />
                     <inputColumn
                       refId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CorporationKey]"
                       cachedDataType="i4"
                       cachedName="CorporationKey"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CorporationKey]"
-                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[CorporationKey]" />
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CorporationKey]" />
                     <inputColumn
                       refId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[payment_amount]"
                       cachedDataType="cy"
                       cachedName="payment_amount"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PaymentAmount]"
-                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_amount]" />
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[payment_amount]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -908,7 +1719,7 @@ where [refTable].[MemberNo] = ?</property>
                       refId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[member_no]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[member_no]"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[member_no]"
                       name="member_no"
@@ -917,7 +1728,7 @@ where [refTable].[MemberNo] = ?</property>
                       refId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[provider_no]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[provider_no]"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[provider_no]"
                       name="provider_no"
@@ -926,7 +1737,7 @@ where [refTable].[MemberNo] = ?</property>
                       refId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_no]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[category_no]"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_no]"
                       name="category_no"
@@ -935,7 +1746,7 @@ where [refTable].[MemberNo] = ?</property>
                       refId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[charge_date]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[charge_date]"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[charge_date]"
                       name="charge_date"
@@ -944,7 +1755,7 @@ where [refTable].[MemberNo] = ?</property>
                       refId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_amount]"
                       dataType="cy"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[payment_amount]"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_amount]"
                       name="payment_amount"
@@ -954,7 +1765,7 @@ where [refTable].[MemberNo] = ?</property>
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystem]"
                       length="10"
                       lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystem]"
@@ -1081,7 +1892,7 @@ where [refTable].[ProviderNo] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
+                  typeConverter="LookupNoMatchBehavior">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -1149,6 +1960,7 @@ where [refTable].[ProviderNo] = ?</property>
                 <output
                   refId="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider.Inputs[Lookup Input]">
@@ -1202,38 +2014,493 @@ where [refTable].[ProviderNo] = ?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\DF_Load_FACT_Payment\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[member_no]"
+                      cachedDataType="i4"
+                      cachedName="member_no"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[member_no]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[member_no]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[provider_no]"
+                      cachedDataType="i4"
+                      cachedName="provider_no"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[provider_no]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[provider_no]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[category_no]"
+                      cachedDataType="i4"
+                      cachedName="category_no"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_no]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[category_no]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[charge_date]"
+                      cachedDataType="dbDate"
+                      cachedName="charge_date"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[charge_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[charge_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[payment_amount]"
+                      cachedDataType="cy"
+                      cachedName="payment_amount"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_amount]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[payment_amount]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[SourceSystem]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SourceSystem"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystem]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[SourceSystem]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      lineageId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output].Columns[DateKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[DateKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[MemberKey]"
+                      cachedDataType="i4"
+                      cachedName="MemberKey"
+                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[MemberKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[MemberKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[CorporationKey]"
+                      cachedDataType="i4"
+                      cachedName="CorporationKey"
+                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[CorporationKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CorporationKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[RegionKey]"
+                      cachedDataType="i4"
+                      cachedName="RegionKey"
+                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[RegionKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[RegionKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[ProviderKey]"
+                      cachedDataType="i4"
+                      cachedName="ProviderKey"
+                      lineageId="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider.Outputs[Lookup Match Output].Columns[ProviderKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[ProviderKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3].Columns[CategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="CategoryKey"
+                      lineageId="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category.Outputs[Lookup Match Output].Columns[CategoryKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CategoryKey]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[member_no]"
+                      cachedDataType="i4"
+                      cachedName="member_no"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[member_no]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[member_no]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[provider_no]"
+                      cachedDataType="i4"
+                      cachedName="provider_no"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[provider_no]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[provider_no]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[category_no]"
+                      cachedDataType="i4"
+                      cachedName="category_no"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[category_no]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[category_no]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[charge_date]"
+                      cachedDataType="dbDate"
+                      cachedName="charge_date"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[charge_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[charge_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[payment_amount]"
+                      cachedDataType="cy"
+                      cachedName="payment_amount"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[payment_amount]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[payment_amount]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[SourceSystem]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SourceSystem"
+                      lineageId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystem]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[SourceSystem]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      lineageId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output].Columns[DateKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[DateKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[MemberKey]"
+                      cachedDataType="i4"
+                      cachedName="MemberKey"
+                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[MemberKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[MemberKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[CorporationKey]"
+                      cachedDataType="i4"
+                      cachedName="CorporationKey"
+                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[CorporationKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CorporationKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[RegionKey]"
+                      cachedDataType="i4"
+                      cachedName="RegionKey"
+                      lineageId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output].Columns[RegionKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[RegionKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[ProviderKey]"
+                      cachedDataType="i4"
+                      cachedName="ProviderKey"
+                      lineageId="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider.Outputs[Lookup Match Output].Columns[ProviderKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[ProviderKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2].Columns[CategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="CategoryKey"
+                      lineageId="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category.Outputs[Lookup Match Output].Columns[CategoryKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CategoryKey]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 1]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[member_no]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[member_no]"
+                      name="member_no" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[provider_no]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[provider_no]"
+                      name="provider_no" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[category_no]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[category_no]"
+                      name="category_no" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[charge_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[charge_date]"
+                      name="charge_date" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[payment_amount]"
+                      dataType="cy"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[payment_amount]"
+                      name="payment_amount" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[SourceSystem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[SourceSystem]"
+                      name="SourceSystem" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[MemberKey]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[MemberKey]"
+                      name="MemberKey" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CorporationKey]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CorporationKey]"
+                      name="CorporationKey" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[RegionKey]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[RegionKey]"
+                      name="RegionKey" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[ProviderKey]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[ProviderKey]"
+                      name="ProviderKey" />
+                    <outputColumn
+                      refId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1].Columns[CategoryKey]"
+                      name="CategoryKey" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
+              refId="Package\DF_Load_FACT_Payment.Paths[Conditional Split Default Output]"
+              endId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 2]"
+              name="Conditional Split Default Output"
+              startId="Package\DF_Load_FACT_Payment\If there is null key.Outputs[Conditional Split Default Output]" />
+            <path
               refId="Package\DF_Load_FACT_Payment.Paths[Derived Column Output]"
-              endId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\DF_Load_FACT_Payment\Check Existed Records.Inputs[Lookup Input]"
               name="Derived Column Output"
               startId="Package\DF_Load_FACT_Payment\Derived Column.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output]"
-              endId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output]" />
+              refId="Package\DF_Load_FACT_Payment.Paths[Derived Column Output1]"
+              endId="Package\DF_Load_FACT_Payment\Multicast.Inputs[Multicast Input 1]"
+              name="Derived Column Output"
+              startId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output1]"
+              refId="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output]"
               endId="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output2]"
+              refId="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output1]"
               endId="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider.Outputs[Lookup Match Output]" />
             <path
+              refId="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output2]"
+              endId="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Outputs[Lookup Match Output]" />
+            <path
               refId="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output3]"
-              endId="Package\DF_Load_FACT_Payment\Derived Column.Inputs[Derived Column Input]"
+              endId="Package\DF_Load_FACT_Payment\If there is null key.Inputs[Conditional Split Input]"
               name="Lookup Match Output"
               startId="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DF_Load_FACT_Payment.Paths[Lookup No Match Output]"
+              endId="Package\DF_Load_FACT_Payment\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DF_Load_FACT_Payment\Check Existed Records.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DF_Load_FACT_Payment.Paths[MissingDIMKey]"
+              endId="Package\DF_Load_FACT_Payment\Add DimensionName to audit table.Inputs[Derived Column Input]"
+              name="MissingDIMKey"
+              startId="Package\DF_Load_FACT_Payment\If there is null key.Outputs[MissingDIMKey]" />
+            <path
+              refId="Package\DF_Load_FACT_Payment.Paths[Multicast Output 1]"
+              endId="Package\DF_Load_FACT_Payment\Union All.Inputs[Union All Input 3]"
+              name="Multicast Output 1"
+              startId="Package\DF_Load_FACT_Payment\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\DF_Load_FACT_Payment.Paths[Multicast Output 2]"
+              endId="Package\DF_Load_FACT_Payment\Auddit Log Table.Inputs[OLE DB Destination Input]"
+              name="Multicast Output 2"
+              startId="Package\DF_Load_FACT_Payment\Multicast.Outputs[Multicast Output 2]" />
             <path
               refId="Package\DF_Load_FACT_Payment.Paths[OLE DB Source Output]"
               endId="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\DF_Load_FACT_Payment\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DF_Load_FACT_Payment.Paths[Union All Output 1]"
+              endId="Package\DF_Load_FACT_Payment\Derived Column.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\DF_Load_FACT_Payment\Union All.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1262,49 +2529,85 @@ where [refTable].[ProviderNo] = ?</property>
     design-time-name="Package\DF_Load_FACT_Payment">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="123,42"
+          Id="Package\DF_Load_FACT_Payment\Union All"
+          TopLeft="763.75,649.25" />
         <NodeLayout
           Size="260,42"
           Id="Package\DF_Load_FACT_Payment\get CategoryKey from DIM_Category"
-          TopLeft="693.333333333333,429.555555555555" />
+          TopLeft="775.083333333333,491.055555555555" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\DF_Load_FACT_Payment\Auddit Log Table"
+          TopLeft="271.638888888889,332.138888888888" />
         <NodeLayout
           Size="275,42"
           Id="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member"
-          TopLeft="688.111111111111,229.222222222222" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\DF_Load_FACT_Payment\OLE DB Source"
-          TopLeft="378.666666666667,142.666666666667" />
-        <NodeLayout
-          Size="234,46"
-          Id="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider"
-          TopLeft="706.222222222222,325.333333333333" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\DF_Load_FACT_Payment\OLE DB Destination"
-          TopLeft="333.888888888889,538.555555555555" />
+          TopLeft="768.361111111111,248.972222222222" />
         <NodeLayout
           Size="219,42"
           Id="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date"
-          TopLeft="715.444444444444,141.888888888889" />
+          TopLeft="799.944444444444,148.138888888889" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DF_Load_FACT_Payment\OLE DB Destination"
+          TopLeft="248.411616161616,765.464646464646" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DF_Load_FACT_Payment\OLE DB Source"
+          TopLeft="404.027777777778,151.861111111111" />
         <NodeLayout
           Size="158,42"
           Id="Package\DF_Load_FACT_Payment\Derived Column"
-          TopLeft="748.944444444445,536.388888888888" />
+          TopLeft="755.694444444445,755.138888888888" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\DF_Load_FACT_Payment\Check Existed Records"
+          TopLeft="508.75,763.25" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider"
+          TopLeft="783.722222222222,369.333333333333" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\DF_Load_FACT_Payment\Add DimensionName to audit table"
+          TopLeft="513.75,324" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\DF_Load_FACT_Payment\Multicast"
+          TopLeft="455.75,652" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\DF_Load_FACT_Payment\If there is null key"
+          TopLeft="593.25,487.25" />
         <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[OLE DB Source Output]"
-          TopLeft="535.666666666667,163.277777777778">
+          Id="Package\DF_Load_FACT_Payment.Paths[Union All Output 1]"
+          TopLeft="825.25,691.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="179.777777777778,0"
+              EndConnector="9.44444444444503,63.888888888888"
               Start="0,0"
-              End="172.277777777778,0">
+              End="9.44444444444503,56.388888888888">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="172.277777777778,0" />
+                    End="0,27.944444444444" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.944444444444"
+                    Point2="0,31.944444444444"
+                    Point3="4,31.944444444444" />
+                  <mssgle:LineSegment
+                    End="5.44444444444503,31.944444444444" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.44444444444503,31.944444444444"
+                    Point2="9.44444444444503,31.944444444444"
+                    Point3="9.44444444444503,35.944444444444" />
+                  <mssgle:LineSegment
+                    End="9.44444444444503,56.388888888888" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1314,115 +2617,253 @@ where [refTable].[ProviderNo] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output3]"
-          TopLeft="825.638888888889,471.555555555555">
+          Id="Package\DF_Load_FACT_Payment.Paths[OLE DB Source Output]"
+          TopLeft="561.027777777778,171">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,64.8333333333332"
+              EndConnector="238.916666666666,0"
               Start="0,0"
-              End="0,57.3333333333332">
+              End="231.416666666666,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.3333333333332" />
+                    End="231.416666666666,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[Multicast Output 2]"
+          TopLeft="498.083333333333,652">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-145.444444444444,-277.861111111112"
+              Start="0,0"
+              End="-145.444444444444,-270.361111111112">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-109.285268414482" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-109.285268414482"
+                    Point2="0,-113.285268414482"
+                    Point3="-4,-113.285268414482" />
+                  <mssgle:LineSegment
+                    End="-141.444444444444,-113.285268414482" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-141.444444444444,-113.285268414482"
+                    Point2="-145.444444444444,-113.285268414482"
+                    Point3="-145.444444444444,-117.285268414482" />
+                  <mssgle:LineSegment
+                    End="-145.444444444444,-270.361111111112" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[Multicast Output 1]"
+          TopLeft="578.75,671.625">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185,0"
+              Start="0,0"
+              End="177.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="177.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[MissingDIMKey]"
+          TopLeft="676.833333333333,487.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-121.25"
+              Start="0,0"
+              End="0,-113.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-113.75" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-83.24173828125,22.8619791666666,96.3827734375,11.609375"
+              BoundingBox="-33.94693359375,-62.5673828125,67.8938671875,11.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[Lookup No Match Output]"
+          TopLeft="508.75,785.357323232323">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-83.3383838383837,0"
+              Start="0,0"
+              End="-75.8383838383837,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-75.8383838383837,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-93.7255786379419,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output3]"
+          TopLeft="905.083333333333,533.055555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-203.833333333333,-3.80555555555497"
+              Start="0,0"
+              End="-203.833333333333,3.69444444444503">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="-4,22.5" />
+                  <mssgle:LineSegment
+                    End="-199.833333333333,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-199.833333333333,22.5"
+                    Point2="-203.833333333333,22.5"
+                    Point3="-203.833333333333,18.5" />
+                  <mssgle:LineSegment
+                    End="-203.833333333333,3.69444444444503" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-150.108053385417,27.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output2]"
-          TopLeft="823.277777777778,371.333333333333">
+          TopLeft="907.652777777777,190.138888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.2222222222222"
+              EndConnector="0,58.833333333333"
               Start="0,0"
-              End="0,50.7222222222222">
+              End="0,51.333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.7222222222222" />
+                    End="0,51.333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-83.24173828125,19.5564236111111,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,19.8619791666665,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output1]"
-          TopLeft="824.416666666667,271.222222222222">
+          TopLeft="902.902777777777,411.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54.111111111111"
+              EndConnector="0,79.722222222222"
               Start="0,0"
-              End="0,46.611111111111">
+              End="0,72.222222222222">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.611111111111" />
+                    End="0,72.222222222222" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-83.24173828125,17.5008680555555,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,30.306423611111,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Load_FACT_Payment.Paths[Lookup Match Output]"
-          TopLeft="825.277777777778,183.888888888889">
+          TopLeft="903.291666666667,290.972222222222">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45.3333333333334"
+              EndConnector="0,78.361111111111"
               Start="0,0"
-              End="0,37.8333333333334">
+              End="0,70.861111111111">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.8333333333334" />
+                    End="0,70.861111111111" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-87.48673828125,13.1119791666667,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,29.6258680555555,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DF_Load_FACT_Payment.Paths[Derived Column Output]"
-          TopLeft="748.944444444445,558.472222222221">
+          Id="Package\DF_Load_FACT_Payment.Paths[Derived Column Output1]"
+          TopLeft="534.75,366">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-238.055555555556,0"
+              EndConnector="0,286"
               Start="0,0"
-              End="-230.555555555556,0">
+              End="0,278.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-230.555555555556,0" />
+                    End="0,278.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1431,6 +2872,83 @@ where [refTable].[ProviderNo] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[Derived Column Output]"
+          TopLeft="755.694444444445,776.138888888888">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-53.944444444445,8.111111111112"
+              Start="0,0"
+              End="-46.444444444445,8.111111111112">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-22.9722222222225,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.9722222222225,0"
+                    Point2="-26.9722222222225,0"
+                    Point3="-26.9722222222225,4" />
+                  <mssgle:LineSegment
+                    End="-26.9722222222225,4.111111111112" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.9722222222225,4.111111111112"
+                    Point2="-26.9722222222225,8.111111111112"
+                    Point3="-30.9722222222225,8.111111111112" />
+                  <mssgle:LineSegment
+                    End="-46.444444444445,8.111111111112" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Load_FACT_Payment.Paths[Conditional Split Default Output]"
+          TopLeft="649.25,529.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="176,120"
+              Start="0,0"
+              End="176,112.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.695652173913" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.695652173913"
+                    Point2="0,48.695652173913"
+                    Point3="4,48.695652173913" />
+                  <mssgle:LineSegment
+                    End="172,48.695652173913" />
+                  <mssgle:CubicBezierSegment
+                    Point1="172,48.695652173913"
+                    Point2="176,48.695652173913"
+                    Point3="176,52.695652173913" />
+                  <mssgle:LineSegment
+                    End="176,112.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="17.38609375,53.695652173913,141.2278125,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text=""
+          ParentId="Package\DF_Load_FACT_Payment"
+          FontInfo="{assembly:Null}"
+          Size="29,40"
+          Id="4ccef754-257a-48ec-8f3c-0d01eab2ea23"
+          TopLeft="376,407" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -1458,6 +2976,19 @@ where [refTable].[ProviderNo] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\DF_Load_FACT_Payment\Auddit Log Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\DF_Load_FACT_Payment\MemberK, RegionK, CorK DIM_Member">
     <Properties>
       <Property>
@@ -1481,35 +3012,22 @@ where [refTable].[ProviderNo] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DF_Load_FACT_Payment\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider">
+    design-time-name="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dw].[DIM_Provider]</Value>
+          type="q3:string">[dw].[DIM_Date]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1530,17 +3048,53 @@ where [refTable].[ProviderNo] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DF_Load_FACT_Payment\Get DateKey from DIM_Date">
+    design-time-name="Package\DF_Load_FACT_Payment\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Load_FACT_Payment\Check Existed Records">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dw].[DIM_Date]</Value>
+          type="q3:string">[dw].[FACT_Payment]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Load_FACT_Payment\ProviderKey from DIM_Provider">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DIM_Provider]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
