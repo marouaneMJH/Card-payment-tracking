@@ -1,7 +1,6 @@
 <Solution>
   <Configurations>
     <BuildType Name="Development" />
-    <BuildType Name="Release" />
     <Platform Name="Default" />
   </Configurations>
   <Project Path="Suivi des paiements par carte/Suivi des paiements par carte.dtproj" Type="c9674dcb-5085-4a16-b785-4c70dd1589bd">

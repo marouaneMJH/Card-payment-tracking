@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_01_Load_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="67"
-  DTS:VersionGUID="{B72CBD02-6477-4F41-B44D-1FE16501F0A5}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{13221301-6BE6-405F-A012-04D7E1B2E6F0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -63,7 +63,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="member"
-              DTS:DTSID="{796174C5-52C4-4D47-A2D3-59E272702220}"
+              DTS:DTSID="{EECC68F6-8817-4C52-861B-F1B4CB8A7B62}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -72,7 +72,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="provider"
-              DTS:DTSID="{D900DFE0-7CC7-4485-930C-3A11E9E803EB}"
+              DTS:DTSID="{CF0B8D30-A338-43C4-8776-C8260964F8A0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -81,7 +81,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="category"
-              DTS:DTSID="{666689FB-7A4A-4FBA-BA16-0DDD4934F07B}"
+              DTS:DTSID="{5048D904-6CF2-4246-B265-F3CF99039208}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -90,7 +90,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="charge date"
-              DTS:DTSID="{019006BF-DCBE-4D26-A9A0-B8B0F9B88AEC}"
+              DTS:DTSID="{F6647388-A96D-4B20-8404-6A2F6025CD2D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -99,7 +99,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName=" charge amount"
-              DTS:DTSID="{380AB4C3-2B30-4184-922B-C9BBE1DCB382}"
+              DTS:DTSID="{D993FA73-5BF3-4F77-B978-75583402CF61}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -2496,7 +2496,7 @@ FROM dbo.region;</property>
         <NodeLayout
           Size="199,42"
           Id="Package\DF_Load_STG_Member"
-          TopLeft="438.25,522.25" />
+          TopLeft="437.25,521.25" />
         <NodeLayout
           Size="200,42"
           Id="Package\DF_Load_STG_Provider"
@@ -2583,14 +2583,14 @@ FROM dbo.region;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.25"
+              EndConnector="0,35.2500000000001"
               Start="0,0"
-              End="0,27.75">
+              End="0,27.7500000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.75" />
+                    End="0,27.7500000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2605,14 +2605,14 @@ FROM dbo.region;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.75"
+              EndConnector="0,34.7499999999999"
               Start="0,0"
-              End="0,27.25">
+              End="0,27.2499999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.25" />
+                    End="0,27.2499999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2645,18 +2645,18 @@ FROM dbo.region;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="533.875,477.75">
+          TopLeft="533.375,477.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44.5"
+              EndConnector="0,43.5"
               Start="0,0"
-              End="0,37">
+              End="0,36">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37" />
+                    End="0,36" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2742,9 +2742,9 @@ FROM dbo.region;</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="177,42"
+          Size="177,67"
           Id="Package\DF_Load_Charge_Excel\OLE DB Destination"
-          TopLeft="559,347" />
+          TopLeft="559,348" />
         <NodeLayout
           Size="144,65"
           Id="Package\DF_Load_Charge_Excel\Excel Source"
@@ -2755,26 +2755,26 @@ FROM dbo.region;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.5,141"
+              EndConnector="58.5,142"
               Start="0,0"
-              End="58.5,133.5">
+              End="58.5,134.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66.5" />
+                    End="0,67" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,66.5"
-                    Point2="0,70.5"
-                    Point3="4,70.5" />
+                    Point1="0,67"
+                    Point2="0,71"
+                    Point3="4,71" />
                   <mssgle:LineSegment
-                    End="54.5,70.5" />
+                    End="54.5,71" />
                   <mssgle:CubicBezierSegment
-                    Point1="54.5,70.5"
-                    Point2="58.5,70.5"
-                    Point3="58.5,74.5" />
+                    Point1="54.5,71"
+                    Point2="58.5,71"
+                    Point3="58.5,75" />
                   <mssgle:LineSegment
-                    End="58.5,133.5" />
+                    End="58.5,134.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2878,25 +2878,37 @@ FROM dbo.region;</property>
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_STG_Category\OLE DB Source"
-          TopLeft="433,59" />
+          TopLeft="432,64" />
         <NodeLayout
           Size="177,42"
           Id="Package\DF_Load_STG_Category\OLE DB Destination"
-          TopLeft="423,298" />
+          TopLeft="438,359" />
         <EdgeLayout
           Id="Package\DF_Load_STG_Category.Paths[OLE DB Source Output]"
-          TopLeft="511.5,101">
+          TopLeft="510.5,106">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,197"
+              EndConnector="16,253"
               Start="0,0"
-              End="0,189.5">
+              End="16,245.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,189.5" />
+                    End="0,122.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,122.5"
+                    Point2="0,126.5"
+                    Point3="4,126.5" />
+                  <mssgle:LineSegment
+                    End="12,126.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,126.5"
+                    Point2="16,126.5"
+                    Point3="16,130.5" />
+                  <mssgle:LineSegment
+                    End="16,245.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3001,25 +3013,25 @@ FROM dbo.region;</property>
         <NodeLayout
           Size="157,42"
           Id="Package\DF_Load_STG_Member\OLE DB Source"
-          TopLeft="290,125" />
+          TopLeft="291,126" />
         <NodeLayout
           Size="177,42"
           Id="Package\DF_Load_STG_Member\OLE DB Destination"
           TopLeft="280,342" />
         <EdgeLayout
           Id="Package\DF_Load_STG_Member.Paths[OLE DB Source Output]"
-          TopLeft="368.5,167">
+          TopLeft="369,168">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,175"
+              EndConnector="0,174"
               Start="0,0"
-              End="0,167.5">
+              End="0,166.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,167.5" />
+                    End="0,166.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
