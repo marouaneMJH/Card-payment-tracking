@@ -1,13 +1,13 @@
-# 💳 Card Payment Tracking (Suivi des paiements par carte)
+# Card Payment Tracking (Suivi des paiements par carte)
 
-## 📖 Overview
+## Overview
 **Card Payment Tracking** is a comprehensive Business Intelligence solution designed to monitor and analyze card payment data. This project orchestrates the entire data lifecycle, from extraction and transformation to visualization, enabling stakeholders to gain actionable insights into daily transaction trends, monthly performance, and long-term analytics.
 
 The solution leverages **SSIS (SQL Server Integration Services)** for robust ETL processes and **Power BI** for interactive and insightful reporting.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 The system architecture follows a classic BI layered approach:
 1.  **Source System**: Transactional data (files/databases).
@@ -15,7 +15,7 @@ The system architecture follows a classic BI layered approach:
 3.  **Data Warehouse (DWH)**: Structured Star Schema (Facts & Dimensions) optimized for reporting.
 4.  **Presentation Layer**: Power BI dashboards for end-user consumption.
 
-### 🛠️ Technology Stack
+### Technology Stack
 *   **ETL**: Microsoft SSIS (SQL Server Integration Services)
 *   **Database**: SQL Server
 *   **Reporting**: Microsoft Power BI
@@ -23,7 +23,7 @@ The system architecture follows a classic BI layered approach:
 
 ---
 
-## 🔄 ETL Process (SSIS)
+## ETL Process (SSIS)
 
 The ETL process is modularized into dedicated packages to ensure maintainability and error handling.
 
